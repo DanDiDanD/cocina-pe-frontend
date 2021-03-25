@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.ant-btn-primary {
+  background-color: #ad4e00 !important;
+  border-color: #ad4e00 !important;
+}
+
+
+
+.ant-btn-primary:hover {
+  background-color: #873800 !important;
+  border-color: #873800 !important;
+}
+
+.ant-btn-ghost {
+  background-color: #ee9750 !important;
+  border-color: #ee9750 !important;
+  box-shadow: 
+  inset 0 0 15px rgba(55, 84, 170,0),
+  inset 0 0 20px rgba(255, 255, 255,0),
+  7px 7px 15px rgba(55, 84, 170,.15),
+  -7px -7px 20px rgba(255, 255, 255,1),
+  inset 0px 0px 4px rgba(255, 255, 255,.2);
+}
+
+
+.ant-btn-ghost:hover {
+  background-color: #ee9750  !important;
+  border-color: #ee9750  !important;
+}
+
+.ant-btn-ghost:hover > span {
+  color: rgb(73, 29, 0)
+}
+
+
+.ant-btn-dashed:hover {
+  // background-color: #873800 !important;
+  border-color: rgba(221, 98, 27, 1) !important;
+  color: white;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected.menu-top__menu-item {
+  background-color:#ad4e00; /*Overriden property*/
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item.menu-top__menu-item:hover {
+  background-color: #873800;
+}
+

@@ -1,0 +1,57 @@
+
+$mainC:  hsl(33, 100%, 91%);
+$mainD: hsl(40, 91%, 86%);
+$mainE: hsl(39, 81%, 69%);
+$secC: #9dabc0;
+$svgC: rgba(#929cd0, .8);
+$sz: 300px;
+%center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.login { background-image: url("../../assets/img/png/fondo2.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  /*margin-top: -10px;*/
+  // background: #ffeddb;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+
+  &-form {
+    background: rgb(255, 245, 237);
+    padding: 25px;
+    min-height: 25px;
+    border-radius: 5px 5px;
+
+    @extend %center; 
+    flex-direction: column;
+    // width: $sz;
+    // height: $sz*1.4;
+    border: 1px solid #fff;
+    // background: $mainC;
+    border-radius: 20px;
+      box-shadow: 
+      inset 0 0 15px rgba(55, 84, 170,0),
+      inset 0 0 20px rgba(255, 255, 255,0),
+      7px 7px 15px rgba(55, 84, 170,.15),
+      -7px -7px 20px rgba(255, 255, 255,1),
+      inset 0px 0px 4px rgba(255, 255, 255,.2);
+  }
+
+  
+}
+
+.site-page-button {
+  display: flex;
+  justify-content: center;
+}

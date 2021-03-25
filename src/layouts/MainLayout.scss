@@ -1,0 +1,93 @@
+@import '~antd/dist/antd.css';
+
+
+.layout-main{
+    transition: margin-left 0.2s;
+
+    &__header{
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        padding: 50;
+        height: 64px;
+        background: rgba(221, 98, 27);
+        // padding: 0px 50px 0px 50px;
+        // background-image:linear-gradient(FF0000, FFF6A4);/*rgba(221, 98, 27, 1);*/
+    }
+
+    &__header-brown{
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        padding: 0;
+        height: 75px;
+        padding: 0px 50px 0px 50px;
+        background: rgba(251, 206, 72, 1);
+    }
+
+    &__content{
+        // z-index: 0;
+        min-height: calc(100vh - 75px);
+        padding: 75px 0px 0px 0px;
+        background: #f8f4f0;
+    }
+    &__footer{
+        background: rgba(221, 98, 27);
+        color: rgba(251, 206, 72, 1);
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 15px;
+    justify-content: end;
+     width: 100%;
+    &-button {
+    /*  margin-left: 1150px;*/
+      background: #ad4e00;
+      margin-right: 5px;
+    }
+  
+  }
+
+// .ant-btn-primary {
+//     background-color: #ad4e00 !important;
+//     border-color: #ad4e00 !important;
+// }
+
+// .ant-btn-primary:hover {
+//     background-color: red !important;
+//     border-color: red !important;
+// }
+
+// .site-layout-background {
+//   background: #fff;
+//   padding: 24;
+//   min-height: 80vh;
+// }
+
+// .header {
+//   display: flex;
+//   flex-direction: row-reverse;
+//   padding-top: 15px;
+
+//   &-button {
+//     margin-left: 20px;
+//   }
+
+// }
+
+// .logo {
+//   position: absolute;
+//   height: 50px;
+//   width: 50px;
+//   margin: center;
+//   // padding-right: 15px;
+// }
