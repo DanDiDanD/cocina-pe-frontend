@@ -33,14 +33,14 @@ export default function Home() {
 
 
   const recetaCard = (indice) => {
-    // if(auth.data ){
-    //   window.location.href = `/cocina/platillos/${platillos[indice]._id}`
-    // }
-    // else{
-    //   localStorage.setItem('ruta_siguiente', `/cocina/platillos/${platillos[indice]._id}`)
-    //   window.location.href = `/login`
+    if(auth.data ){
+      window.location.href = `/cocina/platillos/${platillos[indice]._id}`
+    }
+    else{
+      localStorage.setItem('ruta_siguiente', `/cocina/platillos/${platillos[indice]._id}`)
+      window.location.href = `/login`
       
-    // }
+    }
   }
 
   const modalPremium = () => {

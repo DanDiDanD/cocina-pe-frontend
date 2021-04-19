@@ -61,8 +61,7 @@ export default function MenuTopMain(props) {
                         <Link to={RUTAS.platillo}>Platillos</Link>
                     </Menu.Item>
                     <Menu.Item className="menu-top__menu-item" key={`/cocina/usuarios/${auth.data._id}`}>
-                        {/* <Link to={`/cocina/usuarios/${auth.data._id}`}>Mi perfil</Link> */}
-                        Mi perfil
+                        <Link to={`/cocina/usuarios/${auth.data._id}`}>Mi perfil</Link>
                     </Menu.Item>
                     <Menu.Item className="menu-top__menu-item" key={RUTAS.usuario}>
                         <Link to={RUTAS.usuario}>Usuarios</Link>
@@ -78,8 +77,7 @@ export default function MenuTopMain(props) {
                         {auth.data.is_premium ? <Link to={RUTAS.platillo}>Platillos</Link> : <Link onClick={() => modalPremium()}>Platillos</Link> }
                     </Menu.Item>
                     <Menu.Item className="menu-top__menu-item" key={`/cocina/usuarios/${auth.data._id}`}>
-                        {/* <Link to={`/cocina/usuarios/${auth.data._id}`}>Mi perfil</Link> */}
-                        Mi perfil
+                        <Link to={`/cocina/usuarios/${auth.data._id}`}>Mi perfil</Link>
                     </Menu.Item>
                     
                 </Menu>
@@ -90,7 +88,7 @@ export default function MenuTopMain(props) {
                 <Button
                 type="primary"
                 icon={<PlusCircleFilled twoToneColor="#fa541c" />}
-                // onClick={addReceta}
+                onClick={addReceta}
                 >
                 Nueva Receta
                 </Button>

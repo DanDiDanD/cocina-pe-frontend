@@ -164,7 +164,7 @@ export default function Platillos() {
                       <Button
                         type="dashed"
                         icon={<EyeOutlined />}
-                        // href={`/cocina/platillos/${item._id}`}
+                        href={`/cocina/platillos/${item._id}`}
                     >
                       Ver recetas
                     </Button>]}
