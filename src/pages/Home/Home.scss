@@ -57,13 +57,14 @@ $sz: 300px;
 }
 
 .main-container {
-  // evita la responsividad
   //padding: 20px 200px 0px 200px;
 }
 
 .card-bonito {
+  /* align-content: center; */
   border-radius: 20px;
   .ant-card {
+    align-content: center;
     .ant-card-meta-title {
       text-align: center
     }
@@ -83,7 +84,7 @@ $sz: 300px;
 
   .ant-card-actions {
     @extend %center;
-    width: 400px;
+    //width: 400px;
     // height: $sz*.2;
     // border: 1px solid #fff;
     background: $mainD;
@@ -118,8 +119,13 @@ $sz: 300px;
   // }
 }
 
+.card-container {
+  max-width: 350px;
+}
+
 .imagen-bonita {
   @extend %center;
+  max-height: 250px;
   // width: 400px;
   // height: $sz*.2;
   border-radius: 10px;
