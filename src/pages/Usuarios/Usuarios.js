@@ -79,7 +79,7 @@ export default function Usuario() {
       render: (text, record) => (
         <Space size="middle">
             {" "}
-            <Button
+            <Button shape="round"
                 type="danger"
                 icon={<DeleteOutlined />}
                 onClick={() => eliminarUsuario(record._id, record.nombre, record.apellido_paterno)}

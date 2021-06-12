@@ -112,7 +112,7 @@ export default function Platillos() {
       render: (nombre, record) => (
         <Space size="middle">
             {" "}
-            <Button
+            <Button shape="round"
                 type="dashed"
                 icon={<EyeOutlined />}
                 href={`/cocina/platillos/${record._id}`}
@@ -161,7 +161,7 @@ export default function Platillos() {
               renderItem={(item) => (
                 <List.Item
                   actions={[            
-                      <Button
+                      <Button shape="round"
                         type="dashed"
                         icon={<EyeOutlined />}
                         href={`/cocina/platillos/${item._id}`}

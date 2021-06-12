@@ -166,7 +166,7 @@ export default function AddIngredienteModal(props) {
 
       <Form.Item className="site-page-button">
         <div className="site-page-button">
-          <Button type="primary" htmlType="submit">
+          <Button shape="round" type="primary" htmlType="submit">
             Agregar ingredientes listados
           </Button>
         </div>
@@ -209,7 +209,7 @@ export default function AddIngredienteModal(props) {
                 </Row>
             ))}
             <Form.Item {...tailFormItemLayout} >
-              <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
+              <Button shape="round" type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
                 Más Ingredientes
               </Button>
             </Form.Item>
@@ -219,7 +219,7 @@ export default function AddIngredienteModal(props) {
 
       <Form.Item className="site-page-button">
         <div className="site-page-button">
-          <Button type="primary" htmlType="submit">
+          <Button shape="round" type="primary" htmlType="submit">
             Agregar extras
           </Button>
         </div>

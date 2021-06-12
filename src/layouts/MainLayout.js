@@ -56,7 +56,7 @@ export default function MainLayout(props) {
                   <LoadRoutes routes={routes}/>
               </Content>
               <Footer className="layout-basic__footer">
-                Politicas de privacidad - Grupo 01<br/>
+                Politicas de privacidad - Grupo AAAAAAA<br/>
 
               </Footer>
           </Layout>

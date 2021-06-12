@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Layout, Form, Input, Button, Typography, notification, Space } from "antd";
+import { InfoCircleOutlined, UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Route, Redirect } from "react-router-dom";
 import { login } from "../../api/usuarios";
 import { authContext } from "../../providers/AuthContext";
@@ -8,12 +9,13 @@ import RegistroModal from '../../components/RegistroModal'
 
 import jwtDecode from "jwt-decode";
 import "./Login.scss";
+import "./../../index.scss";
 const { Content } = Layout;
-const { Title } = Typography;
+const { Text, Title, Link } = Typography;
 
 const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
+  // labelCol: { span: 8 },
+  wrapperCol: { span: 24 },
 };
 const tailLayout = {
   wrapperCol: { offset: 8 },
@@ -55,31 +57,46 @@ export default function Login({ history }) {
 
   return (
     <Layout className="login">
-      <Content className="login-content">
-        <div className="login-form">
-          <Title style={{ textAlign: "center" }} level={3}>
+      <Content 
+      className="login-content"
+      >
+        <div className="login-form" >
+          <Title style={{ textAlign: "center" }} level={1}>
             Inicia Sesi&oacute;n
           </Title>
           <br />
-          <Form {...layout} name="basic" onFinish={onFinish}>
+          <Form {...layout} name="basic" onFinish={onFinish} 
+            // style={{width: '135%'}}
+            style={{width: 360}}
+          >
             <Form.Item
-              label="Correo"
+              // label="Correo"
               name="correo"
               rules={[{ required: true, message: "Usuario requerido." }]}
             >
-              <Input />
+              <Input 
+                className='login-input'
+                size="large"
+                placeholder="Correo electrónico"
+                prefix={<UserOutlined className="site-form-item-icon" />}
+              />
             </Form.Item>
 
             <Form.Item
-              label="Contraseña"
+              // label="Contraseña"
               name="password"
               rules={[{ required: true, message: "Contraseña requerida." }]}
             >
-              <Input.Password />
+              <Input.Password 
+                className='login-input'
+                size="large"
+                placeholder="Contraseña"
+                prefix={<LockOutlined className="site-form-item-icon" />}
+              />
             </Form.Item>
             <Form.Item className="site-page-button">
               <div className="site-page-button">
-                <Button type="primary" htmlType="submit">
+                <Button shape="round" size="large" type="primary" htmlType="submit" shape="round">
                   Ingresar
                 </Button>
               </div>
@@ -87,9 +104,10 @@ export default function Login({ history }) {
             <br />
             <div className="site-page-button">
                   <Space size="small">
-                 <text>¿No tienes cuenta aún?</text><a onClick={() => registrarse()}>¡Registrate ahora!</a>
+                 <Text className="text-class">¿No tienes cuenta aún?</Text><a className="text-class" onClick={() => registrarse()}>¡Registrate ahora!</a>
                   </Space>
             </div>
+            <br /><br /><br /><br /><br />
           </Form>
         </div>
       </Content>

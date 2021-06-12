@@ -153,7 +153,7 @@ export default function EditIngredienteModal(props) {
 
       <Form.Item className="site-page-button">
         <div className="site-page-button">
-          <Button type="primary" htmlType="submit">
+          <Button shape="round" type="primary" htmlType="submit">
             Guardar
           </Button>
         </div>

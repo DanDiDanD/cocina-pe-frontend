@@ -105,7 +105,7 @@ export default function Perfil() {
       render: (text, record) => (
         <Space size="middle">
             {" "}
-            <Button
+            <Button shape="round"
                 type="dashed"
                 icon={<EyeOutlined />}
                 href={`/cocina/recetas/${record._id}`}
@@ -197,21 +197,21 @@ export default function Perfil() {
       render: (text, record) => (
         <Space size="middle">
             {" "}
-            <Button
+            <Button shape="round"
                 type="dashed"
                 icon={<EyeOutlined />}
                 href={`/cocina/recetas/${record._id}`}
             >
               Ver
             </Button>
-            <Button
+            <Button shape="round"
                 type="dashed"
                 icon={<EditOutlined />}
                 href={`/cocina/recetas/editar/${record._id}`}
             >
               Editar
             </Button>
-            <Button
+            <Button shape="round"
                 type="danger"
                 icon={<DeleteOutlined />}
                 onClick={() => eliminarReceta(record._id, record.nombre)}

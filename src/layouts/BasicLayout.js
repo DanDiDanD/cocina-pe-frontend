@@ -36,7 +36,7 @@ export default function BasicLayout(props) {
               <Header className="layout-basic__header">
                   <MenuTop />
                   <div className="header">
-                    <Button
+                    <Button shape="round"
                       className="header-button"
                       type="primary"
                       icon={<LoginOutlined />}
@@ -51,7 +51,7 @@ export default function BasicLayout(props) {
                   <LoadRoutes routes={routes}/>
               </Content>
               <Footer className="layout-basic__footer">
-                Politicas de privacidad - Grupo 01<br/>
+                Politicas de privacidad - Grupo AAAAAAA<br/>
 
               </Footer>
           </Layout>

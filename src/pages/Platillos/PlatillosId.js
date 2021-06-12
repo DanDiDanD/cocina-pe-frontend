@@ -89,7 +89,7 @@ export default function PlatillosId() {
               renderItem={(item) => (
                 <List.Item
                   actions={[            
-                      <Button
+                      <Button shape="round"
                         type="primary"
                         icon={<EyeOutlined />}
                         href={`/cocina/recetas/${item._id}`}
