@@ -15,7 +15,7 @@ export function Error404() {
         status="404"
         title="404"
         subTitle="La página visitada no existe."
-        extra={<Button type="primary" onClick={handleClick} >Regresar</Button>}
+        extra={<Button shape="round" type="primary" onClick={handleClick} >Regresar</Button>}
       />
     );
   }

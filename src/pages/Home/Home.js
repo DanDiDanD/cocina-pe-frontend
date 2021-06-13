@@ -170,7 +170,7 @@ export default function Home() {
           <div className="container">{cardHTML}</div>
           <Row justify="space-around">
             <Col span={10}>
-              <Button
+              <Button shape="round"
                 className="button-reload"
                 key="1"
                 type="primary"
@@ -260,7 +260,7 @@ function randomSort(array) {
     }}
     // renderItem={(item) => (
     //   <List.Item
-    //     actions={[<Button type="primary" onClick={() => editSede(item._id)}>Modificar</Button>]}
+    //     actions={[<Button shape="round" type="primary" onClick={() => editSede(item._id)}>Modificar</Button>]}
     //   >
     //     <List.Item.Meta
     //       title={`${item.nombre ? item.nombre : ''}`}

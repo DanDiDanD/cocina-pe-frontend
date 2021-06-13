@@ -205,7 +205,7 @@ export default function EditRecetas() {
       render: (text, record) => (
         <Space size="middle">
             {" "}
-            <Button
+            <Button shape="round"
                 type="danger"
                 icon={<DeleteOutlined />}
                 onClick={async() => await deleteIngrediente(record.ingrediente_nombre)}
@@ -292,16 +292,16 @@ export default function EditRecetas() {
             dataSource={baseDataReceta}
             renderItem={item => (
               <List.Item actions={[            
-                <Button
+                <Button shape="round"
                   type="primary"
                   onClick={() => editReceta(id)}
                 >Editar</Button>,
                 item.is_publico == true ?
-                  <Button
+                  <Button shape="round"
                     type="primary"
                     onClick={() => modalRecetaPublica(id, item.is_publico)}
                   >Hacer privada</Button> : 
-                  <Button
+                  <Button shape="round"
                     type="primary"
                     onClick={() => modalRecetaPublica(id, item.is_publico)}
                   >Hacer publica</Button> ,
@@ -321,7 +321,7 @@ export default function EditRecetas() {
 
       <Row>
         <Col span={6} offset={1}><h2>Lista de ingredientes</h2> </Col>
-        <Col offset={2}><Button type='primary' onClick={()=>addIngrediente(id)} >Agregar ingrediente</Button></Col>
+        <Col offset={2}><Button shape="round" type='primary' onClick={()=>addIngrediente(id)} >Agregar ingrediente</Button></Col>
       </Row>
 
       <Row>
@@ -347,7 +347,7 @@ export default function EditRecetas() {
       <Divider />
       <Row>
         <Col span={6} offset={1}><h2> Preparación</h2> </Col>
-        <Col offset={14}><Button type='primary' onClick={()=>addPreparacion(id)} >Agregar paso</Button></Col>
+        <Col offset={14}><Button shape="round" type='primary' onClick={()=>addPreparacion(id)} >Agregar paso</Button></Col>
         
       </Row>
       <Row>

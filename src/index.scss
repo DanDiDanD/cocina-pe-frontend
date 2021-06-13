@@ -12,11 +12,20 @@ code {
     monospace;
 }
 
-.ant-btn-primary {
-  background-color: #ad4e00 !important;
-  border-color: #ad4e00 !important;
-  border-radius: 15%;
+// .ant-btn-primary {
+//   background-color: #ad4e00 !important;
+//   border-color: #ad4e00 !important;
+//   // height: 35px;
+//   // border-radius: 15%;
+// }
+
+.ant-btn {
+  &-primary {
+    background-color: #ad4e00 !important;
+    border-color: #ad4e00 !important;
+  }
 }
+
 
 
 
@@ -60,4 +69,3 @@ code {
 .ant-menu.ant-menu-dark .ant-menu-item.menu-top__menu-item:hover {
   background-color: #873800;
 }
-

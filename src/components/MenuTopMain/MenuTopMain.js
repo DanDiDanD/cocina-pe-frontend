@@ -85,7 +85,7 @@ export default function MenuTopMain(props) {
 
             <div className="menu-top__btn-header">
             <Space>
-                <Button
+                <Button shape="round"
                 type="primary"
                 icon={<PlusCircleFilled twoToneColor="#fa541c" />}
                 onClick={addReceta}
@@ -93,7 +93,7 @@ export default function MenuTopMain(props) {
                 Nueva Receta
                 </Button>
                 
-                <Button
+                <Button shape="round"
                 type="primary"
                 icon={<PoweroffOutlined />}
                 href={`/`}

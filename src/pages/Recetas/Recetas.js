@@ -131,25 +131,25 @@ export default function Recetas() {
             dataSource={baseDataReceta}
             renderItem={item => (
               <List.Item 
-              // actions={[ isFavorito ? <Button
+              // actions={[ isFavorito ? <Button shape="round"
               //   type="danger"
               //   icon={<HeartTwoTone twoToneColor="#eb2f96" />}
               //   onClick={() => modalRecetaFav()}
               // /> :
-              //   <Button
+              //   <Button shape="round"
               //     type="dashed"
               //     icon={<HeartTwoTone twoToneColor="#eb2f96" />}
               //     onClick={() => modalRecetaFav()}
               //   />]}
                 extra = {
-                  isFavorito ? <> <br/> <Button
+                  isFavorito ? <> <br/> <Button shape="round"
                 type="danger"
                 icon={<HeartTwoTone twoToneColor="#eb2f96" />}
                 onClick={() => modalRecetaFav()}
               /> </>:
                   <>
                   <br/>
-                <Button
+                <Button shape="round"
                   type="dashed"
                   icon={<HeartTwoTone twoToneColor="#eb2f96" />}
                   onClick={() => modalRecetaFav()}
