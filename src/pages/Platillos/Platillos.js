@@ -182,7 +182,7 @@ export default function Platillos() {
                         href={`/cocina/platillos/${item._id}`}
                       >
                         Ver recetas
-                      </Button>,
+                      </Button>
                     ]}
                   >
                     <List.Item.Meta
