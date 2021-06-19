@@ -1,6 +1,58 @@
+
 .list-users-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.container-platillos { 
+  background-image: url("../../assets/img/png/fondofrutas.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.site-page-header {
+  background-color: #ffffffbd;
+  border-radius: 25px;
+}
+
+.lista-platillos {
+//  background-color: #3142df;
+  border-radius: 25px;
+}
+.lista-objeto {
+  background-color: #e7d3af;
+//  border-color: rgb(204, 113, 28);
+  border-width: 30px;
+  border-radius: 25px;
+  width: 90%;
+  max-width:1000px;
+  margin: 10px auto;
+}
+.lista-objeto-meta {
+//  background-color: #c9974d85;
+  text-align: justify;
+  border-radius: 25px;
+  width: 90%; //expansion lateral
+//  max-width:1000px;
+  margin: 1px auto;
+}
+.boton-ver-recetas{
+  background-color: #e29219;
+  position: -webkit-sticky;
+  left: 300px; 
+}
+.etiquetas{
+//  background-color: #1edd8d;
+  border-radius: 25px;
+  border-color: black;
+  border-width: 10px;
+  width: 90%; //expansion lateral
+  margin: 20px auto;
+}
+.etiqueta{
+//  background-color: #dd1e8d;
+  justify-content: center;
+  border-radius: 25px;
+  margin: 20px auto;
+}
