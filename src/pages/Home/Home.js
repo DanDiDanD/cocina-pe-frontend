@@ -116,13 +116,7 @@ export default function Home() {
                       hoverable
                       cover={
                         platillos[indice].ruta_imagen.length != 0 ? (
-                          <img
-                            className="imagen-bonita"
-                            width={250}
-                            height={320}
-                            object-fit="cover"
-                            src={platillos[indice].ruta_imagen}
-                          />
+                          <img className="imagen-bonita" width={250} height={320} object-fit="cover" src={platillos[indice].ruta_imagen} />
                         ) : (
                           <Image
                             height={320}
