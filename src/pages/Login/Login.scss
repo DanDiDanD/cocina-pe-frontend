@@ -7,10 +7,12 @@
   
 }
 
-.login { background-image: url("../../assets/img/png/fondo2.jpg");
+.login { 
+  background-image: url("../../assets/img/png/fondo2.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  min-height: calc(100vh - 75px);
 
   .btn-border{
     border-radius: 13px;

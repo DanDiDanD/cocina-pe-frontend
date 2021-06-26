@@ -101,6 +101,7 @@ export default function Home() {
           const indice_card2 = (contador + 1) % platillos.length; */
 
           return (
+
             <Row justify="space-around" align="middle" /* className="row" */>
               {indices.map((indice) => (
                 <Col
@@ -158,7 +159,7 @@ export default function Home() {
       <div className="div-image">
         <Image src={image} className="site-page-image" preview={false} />
       </div>
-      <div className="main-container">
+      <div className="main-container inicio-autenticado">
         <PageHeader title="¿Qué deseas comer hoy?" className="container-title">
           <Divider style={{ marginTop: "0px" }} />
           <div className="container">{cardHTML}</div>

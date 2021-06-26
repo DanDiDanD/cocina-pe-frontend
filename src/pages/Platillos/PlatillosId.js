@@ -68,7 +68,7 @@ export default function PlatillosId() {
   return (
     <> 
       <div className="master-container">
-        <PageHeader className="site-page-header" title='Platillos'>
+        <PageHeader className="site-page-header" title='Recetas'>
 
         <Divider style={{ marginTop: "0px" }} />
         <Row>
