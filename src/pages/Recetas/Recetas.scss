@@ -10,10 +10,44 @@
     font-size: 30px;
     line-height: 24px;
   }
+/* Scroll para pasos de recetas */
+.estil-1{
+  height: 100px;
+  overflow: auto ;
+}
 
+.estil-1::-webkit-scrollbar {
+  width: 8px;     /* Tamaño del scroll en vertical */
+  height: 8px;    /* Tamaño del scroll en horizontal */
+  display: true;  /* Ocultar scroll */
+}
 
+.estil-1::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
 
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.estil-1::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
 
+/* Cambiamos el fondo cuando esté en active */
+.estil-1::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.estil-1::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+.estil-1::-webkit-scrollbar-track:hover,
+.estil-1::-webkit-scrollbar-track:active {
+background: #d4d4d4;
+}
   
 $mainC:  hsl(33, 100%, 91%);
 $mainD: hsl(40, 91%, 86%);

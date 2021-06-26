@@ -198,33 +198,35 @@ export default function Recetas() {
       <Row>
         
       </Row>
-        <Col span={6} offset={1}><h2> Preparación</h2> </Col>
+        <Col span={6} offset={1}><h2>Preparación</h2> </Col>
       <Row>
         <Col span={24}>
-          <div className="site-card-wrapper">
+          <div className="site-card-wrapper"  >
             <Row gutter={16}>
               {
                 baseDataPreparacion.map((item, i=0) => (
                   <>
-                    <Col span={1}></Col>
-                    <Col span={6}>
-                      <div className='receta-card'>
-                      <Card type="inner" style={{ width: 390 }}hoverable title={`Paso ${i + 1}`} bordered={true} cover={
+                    
+                    <Col span={11}>
+                      <div className='receta-card'  >
+                      <Card type="inner" style={{ maxWidth: 300, minWidth: 280 }}hoverable title={`Paso ${i + 1}`} bordered={true} cover={
                           <Row>
-                            <Col span={22} offset={1}>
+                            <Col span={10} offset={1}>
                               <br/>
-                              {item.url_imagen.length != 0 ? ( <Avatar size={360}
+                              {item.url_imagen.length != 0 ? ( <Avatar size={260}
                                 src={item.url_imagen}
                                 shape="square"
                               />) : (<></>)}
                             </Col>
                           </Row>
                       }>
-                        {item.detalle}
+                        <div class="estil-1">
+                         {item.detalle}
+                        </div>
                       </Card>
                       </div>
                     </Col>
-                    <Col span={1}></Col>
+                    
                   </>
                 ))
               }
@@ -235,7 +237,10 @@ export default function Recetas() {
       </Row>
       <br/>
       </div>
+      
     </>
+
+    
   );
 }
 
