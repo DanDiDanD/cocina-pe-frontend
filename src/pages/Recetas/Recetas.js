@@ -176,14 +176,14 @@ export default function Recetas() {
       </Row>
 
       <Row>
-      | <Col className="col1" span={14}>
+       <Col className="col1" span={14}>
           <Table  className="tabIngred" 
               size="middle"
               columns={columnsIngredientes}
               dataSource={baseDataIngredientes}
               rowSelection = { false }
               rowKey={(record) => record._id}
-              loading={isLoading}
+              loading={isLoading} 
               pagination={false}
               {...props}
             />
