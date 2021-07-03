@@ -51,13 +51,14 @@ export default function MainLayout(props) {
               <Header className="layout-main__header">
                   <MenuTopMain auth={auth} onLogOut={onLogOut}/>
               </Header>
+
               <div className="layout-main__header-brown"></div>
               <Content className="layout-main__content">
                   <LoadRoutes routes={routes}/>
               </Content>
+
               <Footer className="layout-basic__footer">
                 Politicas de privacidad - Grupo AAAAAAA<br/>
-
               </Footer>
           </Layout>
       </Layout>
