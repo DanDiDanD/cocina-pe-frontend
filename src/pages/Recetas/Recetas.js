@@ -9,13 +9,14 @@ import {
   Input,
   Tag,
   Image,
-  Divider,
+  Divider, 
   List,
   Avatar,
   Card,
   Button,
   notification,
-  Modal as ModalAntd
+  Modal as ModalAntd,
+  AutoComplete
 } from "antd";
 import { HeartTwoTone } from '@ant-design/icons'
 import { Link } from "react-router-dom";
@@ -169,62 +170,64 @@ export default function Recetas() {
         </Col>
       </Row>
       <Divider/>
-
+    
       <Row>
         <Col span={6} offset={1}><h2> Lista de ingredientes</h2> </Col>
       </Row>
 
       <Row>
-        <Col span={1}></Col>
-        <Col span={11}>
-          <Table
+       <Col className="col1" span={14}>
+          <Table  className="tabIngred" 
               size="middle"
               columns={columnsIngredientes}
               dataSource={baseDataIngredientes}
               rowSelection = { false }
               rowKey={(record) => record._id}
-              loading={isLoading}
+              loading={isLoading} 
               pagination={false}
               {...props}
             />
+          </Col>
+        <Col className="col2" span={9}> 
+          <Image className="plato"  preview={true} src={imagen}/>
         </Col>
-        <Col span={2}></Col>
-        <Col span={9}>
-          <Image preview={true} src={imagen}/>
-        </Col>
-        <Col span={1}></Col>
-      </Row>
-      <Divider />
-      <Row>
+        
         
       </Row>
-        <Col span={6} offset={1}><h2> Preparación</h2> </Col>
-      <Row>
-        <Col span={24}>
-          <div className="site-card-wrapper">
-            <Row gutter={16}>
+      <Divider />
+      
+        <Row   span={6} offset={1}><h2>Preparación</h2> </Row>
+      
+        <Col className="fonCol" span={"auto"}>
+          <div className="site-card-wrapper"  >
+            <Row  gutter={12}>
               {
                 baseDataPreparacion.map((item, i=0) => (
                   <>
-                    <Col span={1}></Col>
-                    <Col span={6}>
-                      <div className='receta-card'>
-                      <Card type="inner" style={{ width: 390 }}hoverable title={`Paso ${i + 1}`} bordered={true} cover={
-                          <Row>
-                            <Col span={22} offset={1}>
+                    
+                    <Col className="receta-card"  span={12}>
+                      
+                      <Card className="tarjeta" type="inner"  hoverable title={`Paso ${i + 1}`} bordered={true} cover={
+                          
+                            <Row >
                               <br/>
-                              {item.url_imagen.length != 0 ? ( <Avatar size={360}
+                              
+                              {item.url_imagen.length != 0 ? ( <Avatar  size={300} 
+                              style={{margin:15, width:"auto",minHeight:"700", borderRadius:10 }}
                                 src={item.url_imagen}
                                 shape="square"
-                              />) : (<></>)}
-                            </Col>
-                          </Row>
+                              
+                              />) : (<br></br>)}
+                            </Row>
+                          
                       }>
-                        {item.detalle}
+                        <div class="estil-1">
+                         {item.detalle}
+                        </div>
+                        
                       </Card>
-                      </div>
+                      
                     </Col>
-                    <Col span={1}></Col>
                   </>
                 ))
               }
@@ -232,10 +235,13 @@ export default function Recetas() {
           </div>
           
         </Col>
-      </Row>
+      
       <br/>
       </div>
+      
     </>
+
+    
   );
 }
 

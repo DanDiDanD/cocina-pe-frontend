@@ -10,9 +10,115 @@
     font-size: 30px;
     line-height: 24px;
   }
+/* Scroll para pasos de recetas */
+.estil-1{
+  height: 100px;
+  overflow: auto ;
+  //display: flex;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 16px;
+  text-align: justify;
+}
 
+.estil-1::-webkit-scrollbar {
+  width: 8px;     /* Tamaño del scroll en vertical */
+  height: 8px;    /* Tamaño del scroll en horizontal */
+  display: true;  /* Ocultar scroll */
+}
 
+.estil-1::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
 
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.estil-1::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+.estil-1::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.estil-1::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+.estil-1::-webkit-scrollbar-track:hover,
+.estil-1::-webkit-scrollbar-track:active {
+background: #d4d4d4;
+}
+.fonCol{
+  background-color: #e7d3af;
+  border-radius: 25px;
+  
+}
+
+.tabIngred{
+  width: 600px;
+  
+}
+
+.tarjeta{
+  max-width: 1200px;  
+}
+.plato{
+  min-width: 300px;  ;
+  border: 3px solid rgb(212, 212, 212);
+  border-radius: 10px;
+}
+.col1{
+  margin: 15px auto;   
+  
+}
+.col2{
+  margin: 10px auto;   
+  
+}
+
+@media screen and (max-width: 1170px){
+  .fonCol{
+    min-width: 500px;
+    
+  }
+
+}
+
+@media screen and (max-width: 1400px) {
+  .receta-card{
+    margin: 15px auto; 
+    min-width: 450px;  
+  }
+  .col1 {
+    //max-width: 1200px;  
+    min-width: 500px;
+  }
+  .col2 {
+    //max-width: 1200px;  
+    min-width: 470px;
+  }
+
+  .tabIngred{
+    min-width: auto;
+  }
+  .plato{
+    min-width:  400px;
+    
+    border: 3px solid rgb(212, 212, 212);
+    border-radius: 10px;
+  }
+  .master-container{
+    color: rgb(43, 255, 0);
+  }
+}
+  
 
   
 $mainC:  hsl(33, 100%, 91%);
@@ -32,10 +138,10 @@ $sz: 300px;
 .receta-card {
   .ant-card {
   // @extend %center; 
-  flex-direction: column;
+  //flex-direction: column;
   // width: $sz;
   // height: $sz*1.4;
-  border: 1px solid rgb(212, 212, 212);
+  border: 3px solid rgb(212, 212, 212);
   // background: $mainC;
   border-radius: 10px;
   box-shadow: 
@@ -44,13 +150,16 @@ $sz: 300px;
     7px 7px 15px rgba(55, 84, 170,.15),
     inset 0px 0px 4px rgba(255, 255, 255,.2)
     -7px -7px 20px rgba(255, 255, 255,1);
+    
+    margin: 10px ;   
+    //align-content: center;
   }
 
   .ant-card-actions {
     @extend %center; 
-    width: 376px;
-    height: $sz*.2;
-    border: 1px solid #fff;
+    //width: 376px;
+    //height: $sz*.2;
+    border: 10px solid #fff;
     // background: $mainD;
     border-radius: 10px;
     box-shadow: 
@@ -65,6 +174,7 @@ $sz: 300px;
     margin-left: 1px;
     // margin-right: 1px;
     // margin-top: -80px;
-
+    
   }
+  
 }
