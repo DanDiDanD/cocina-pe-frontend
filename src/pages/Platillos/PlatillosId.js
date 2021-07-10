@@ -69,6 +69,7 @@ export default function PlatillosId() {
     <> 
       <div className="master-container  container-platillos">
         <PageHeader className="site-page-header" title='Recetas de la comunidad'>
+
         <Divider style={{ marginTop: "0px" }} />
         <Row>
           <Col lg={24}>
