@@ -205,7 +205,9 @@ export default function Recetas() {
                       </>
                     }
                   />
-                  {item.descripcion}
+                  <div class="estil-2">
+                    {item.descripcion}
+                  </div>
                 </List.Item>
               )}
             />
@@ -249,12 +251,12 @@ export default function Recetas() {
               {baseDataPreparacion.map((item, i = 0) => (
                 <>
                   <Col className="receta-card" span={12}>
-                    <Card
+                    
+                    <Card 
                       className="tarjeta"
-                      type="inner"
                       hoverable
                       title={`Paso ${i + 1}`}
-                      bordered={true}
+                      
                       cover={
                         <Row>
                           <br />
@@ -285,7 +287,8 @@ export default function Recetas() {
             </Row>
           </div>
         </Col>
-
+        <br></br>              
+        
         {/* Coments Section */}
         <PageHeader className="site-page-header" title="Comentarios">
           <Divider style={{ marginTop: "10px" }} />
