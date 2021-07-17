@@ -1,4 +1,4 @@
-const {REACT_APP_BACKEND_URL, NODE_ENV} = process.env;
+const {REACT_APP_BACKEND_URL, REACT_APP_BACKEND_URL_LOCAL,  NODE_ENV} = process.env;
 console.log(process.env);
 
 

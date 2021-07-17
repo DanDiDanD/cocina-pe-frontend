@@ -1,6 +1,32 @@
 .list-users-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.lista-favoritos {
+  background-color: #e7d3af;
+  border-width: 30px;
+  border-radius: 25px;
+  width: 90%;
+  max-width:1000px;
+  margin: 10px auto;
+  padding: 25px 0px 20px 0px;
+}
+
+.lista-favoritos-meta { 
+  text-align: justify;
+  width: 95%;
+  margin: 1px auto;
+}
+
+.lista-favoritos-autor {
+  padding: 0px 0px 0px 25px;
+  color: #ad4e00;
+}
+
+.boton-favoritos-ver-receta {
+  background-color: #e6c740;
+  justify-content: center;
+}
