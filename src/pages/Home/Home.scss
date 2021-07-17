@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 200px);
 }
 .site-page-header {
   border: 1px solid rgb(235, 237, 240);
@@ -31,6 +31,7 @@
 .site-page-image {
   width: 1400px;
 }
+
 
 .card {
   display: flex;
@@ -64,8 +65,9 @@ $sz: 300px;
   align-items: center;
 }
 
+
 .main-container {
-  padding: 5% 2%;
+  padding: 2% 12%;
   .container-title{
     text-align: center;
   }
@@ -75,8 +77,13 @@ $sz: 300px;
   }
   .button-reload{
     height: 35px;
-    border-radius: 13px;
+    // border-radius: 13px;
   }
+}
+
+.container-title .ant-page-header-heading-title {
+  font-size: 28px;
+  padding: 0px 0px 5px 0px;
 }
 
 .card-bonito {
@@ -92,11 +99,12 @@ $sz: 300px;
     flex-direction: column;
     text-align: justify;
     border-radius: 15px;
+    overflow: hidden;
     border: 1px solid #fff;
     //background: $mainC;
-    box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+    box-shadow: inset 0 0 15px rgba(5, 5, 5, 0),
       inset 0 0 20px rgba(255, 255, 255, 0),
-      7px 7px 15px rgba(55, 84, 170, 0.15),
+      7px 7px 15px rgba(0, 0, 0, 0.15),
       -7px -7px 20px rgba(255, 255, 255, 1),
       inset 0px 0px 4px rgba(255, 255, 255, 0.2);
   }
@@ -104,11 +112,11 @@ $sz: 300px;
   .ant-card-actions {
     @extend %center;
     width: 75%;
-    border-radius: 30px;
+    border-radius: 15px;
     margin-bottom: 15px;
     margin-top: 15px;
     background: $mainF;
-    //border-radius: 10px;
+    // border-radius: 10px;
     // margin-top: 110px;
    /*  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
       inset 0 0 20px rgba(255, 255, 255, 0),
@@ -117,7 +125,7 @@ $sz: 300px;
       inset 0px 0px 4px rgba(255, 255, 255, 0.2); */
   }
   .ant-card-bordered .ant-card-cover {
-    margin-left: 1px;
+    // margin-left: 1px;
     // margin-right: 1px;
     // margin-top: -80px;
   }
@@ -128,7 +136,7 @@ $sz: 300px;
   //   height: $sz*.2;
   //   // border: 1px solid #fff;
   //   background: $mainE;
-  //   border-radius: 10px;
+    // border-radius: 10px;
   //   box-shadow:
   //   inset 0 0 15px rgba(55, 84, 170,0),
   //   inset 0 0 20px rgba(255, 255, 255,0),
@@ -164,7 +172,7 @@ $sz: 300px;
   height: $sz * 1.4;
   // border: 1px solid #fff;
   background: $mainC;
-  border-radius: 20px;
+  border-radius:15px;
   box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
     inset 0 0 20px rgba(255, 255, 255, 0), 7px 7px 15px rgba(55, 84, 170, 0.15),
     -7px -7px 20px rgba(255, 255, 255, 1),
