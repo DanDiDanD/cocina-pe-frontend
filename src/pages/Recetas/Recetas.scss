@@ -1,3 +1,4 @@
+// Cambios
 .list-users-header {
     display: flex;
     align-items: center;
@@ -58,7 +59,7 @@ background: #d4d4d4;
 .fonCol{
   background-color: #e7d3af;
   border-radius: 25px;
-  
+
 }
 
 .tabIngred{
@@ -67,6 +68,7 @@ background: #d4d4d4;
 }
 
 .tarjeta{
+  overflow: hidden;
   max-width: 1200px;  
 }
 .plato{
