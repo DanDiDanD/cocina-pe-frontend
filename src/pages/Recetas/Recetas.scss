@@ -227,5 +227,29 @@ $sz: 300px;
     // margin-top: -80px;
     
   }
-  
+}
+
+.addComentSection {
+  //background-color: red;
+  .avatardiv{
+    display: flex;
+    flex-flow: row wrap;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    //height: 60px;
+  }
+  .content {
+    padding: 15px;
+    display: flex;
+
+  }
+  .buttonsSection{
+    display: flex;
+    outline: none;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 15px;
+  }
 }
