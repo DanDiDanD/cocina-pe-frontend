@@ -33,12 +33,12 @@
 
     &__content{
         // z-index: 0;
+        min-height: calc(100vh - 37px);
         background-image: url("../assets/img/png/fondofrutas.jpg");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
 
-        min-height: calc(100vh - 75px);
         padding: 75px 0px 0px 0px;
 //        background: #f8f4f0;
     }

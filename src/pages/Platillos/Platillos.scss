@@ -1,5 +1,14 @@
-.container-platillos { 
-//  background-image: url("../../assets/img/png/fondofrutas.jpg");
+
+/*.container-platillos { 
+  background-image: url("../../assets/img/png/fondofrutas.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-bottom: 25px;
+}*/
+
+.ant-layout-content {
+  // background-image: url("../../assets/img/png/fondofrutas.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -15,33 +24,66 @@
   border-width: 30px;
   border-radius: 25px;
   width: 90%;
-  max-width:1000px;
+  max-width: 1000px;
   margin: 10px auto;
 }
-.lista-objeto-meta { //Contenido de platillos
-//  background-color: #c29d25c0;
+.lista-objeto-meta {
+  //Contenido de platillos
+  //  background-color: #c29d25c0;
   text-align: justify;
   width: 95%;
-  margin: 1px auto;
+  margin: 1px auto!important;
 }
-.etiquetas{
+.etiquetas {
   border-width: 10px;
-  width: 90%; 
+  width: 90%;
   margin: 20px auto;
 }
-.etiqueta{
+.etiqueta {
   justify-content: center;
   border-radius: 25px;
   margin: 1px auto;
 }
 
-.ant-list-item-action{
-//  background-color: #e29219;
+.ant-list-item-action {
+  //  background-color: #e29219;
   display: flex;
   justify-content: center;
 }
-.boton-ver-recetas{
+.boton-ver-recetas {
   background-color: #e6c740;
-//  display: flex;
+  //  display: flex;
   justify-content: center;
-  }
+}
+
+.lista-imagen-platillo {
+  border-radius: 50%;
+}
+
+.lista-descripcion-receta {
+  text-align: justify;
+  padding-left: 23px;
+  padding-right: 15px;
+  color: rgba(0, 0, 0, 0.528);
+  font-size: 14px;
+  line-height: 1.5715;
+}
+.ant-list-item-meta-title {
+  margin-bottom: 0px !important;
+}
+.ant-list-item-meta-avatar {
+  margin-top: 2px;
+  margin-right: 8px;
+}
+.ant-list-item-extra{
+  padding: 15px;
+}
+.ant-list-item-extra img{
+  border-radius: 50%;
+}
+.lista-fila {
+  background-color: #e7d3af;
+  border-width: 30px;
+  border-radius: 25px;
+  margin: 10px auto;
+}
