@@ -312,7 +312,7 @@ export default function Recetas() {
         <Divider />
 
         <Row span={6} offset={1}>
-          <h2>Preparación</h2>{" "}
+          <h2>Preparación</h2>
         </Row>
 
         <Col className="fonCol" span={"auto"}>
@@ -335,7 +335,7 @@ export default function Recetas() {
                               style={{
                                 margin: 15,
                                 width: "auto",
-                                minHeight: "700",
+                                minHeight: "600",
                                 borderRadius: 10,
                               }}
                               src={item.url_imagen}
