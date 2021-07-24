@@ -18,11 +18,15 @@ import {
   Modal as ModalAntd,
   AutoComplete,
 } from "antd";
-import { HeartTwoTone } from "@ant-design/icons";
+import { HeartTwoTone, UserOutlined } from "@ant-design/icons";
 import { EyeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
-import { obtenerReceta, listarRecetas } from "../../api/receta";
+import {
+  obtenerReceta,
+  listarRecetas,
+  modificarReceta,
+} from "../../api/receta";
 import { isRecetaFavorita, recetaFavorita } from "../../api/usuarios";
 import { useParams } from "react-router-dom";
 import { authContext } from "../../providers/AuthContext";
@@ -50,8 +54,9 @@ export default function Recetas() {
   const [reloadFavorito, setReloadFavorito] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   //Coments
-  const [baseDataComentarios, setBaseDataComentarios] = useState([])
-  const [comentsLoading, setComentsLoading] = useState(null)
+  const [baseDataComentarios, setBaseDataComentarios] = useState([]);
+  const [comentario, setComentario] = useState("");
+  const [reloadComentarios, setReloadComentarios] = useState(false);
 
   useEffect(() => {
     const listar = async () => {
@@ -77,10 +82,10 @@ export default function Recetas() {
               };
             })
           : [];
-      let comentarios = recetaEspecifica.comentarios || [] 
+      let comentarios = recetaEspecifica.comentarios || [];
       setBaseDataIngredientes(newArrIngredientes);
       setBaseDataPreparacion(newArrPreparacion);
-      setBaseDataComentarios(comentarios)
+      setBaseDataComentarios(comentarios);
       setImagen(recetaEspecifica.ruta_imagen);
       setIsLoading(false);
       setReload(false);
@@ -127,6 +132,46 @@ export default function Recetas() {
     setReloadFavorito(true);
   };
 
+  useEffect(() => {
+    if (baseDataReceta.length !== 0) {
+      const [recetaEspecifica] = baseDataReceta;
+      let comentarios = recetaEspecifica.comentarios || [];
+      setBaseDataComentarios(comentarios);
+      setReloadComentarios(false);
+    }
+  }, [reloadComentarios]);
+
+  const addComent = async () => {
+    setBaseDataReceta((prevState) => {
+      const user = auth.data;
+      const [recetaEspecifica] = prevState;
+      recetaEspecifica.comentarios = [
+        {
+          username: `${user.nombres} ${user.apellido_paterno} ${user.apellido_materno} `,
+          usuario: user._id,
+          avatarImage: "",
+          content: comentario,
+          likes: 0,
+          dislikes: 0,
+        },
+        ...recetaEspecifica.comentarios,
+      ];
+      return [recetaEspecifica];
+    });
+
+    const [recetaespeficia] = baseDataReceta;
+    modificarReceta(recetaespeficia._id, recetaespeficia)
+      .then((response) => {
+        setComentario("");
+        setReloadComentarios(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleComentario = ({ target: { value } }) => setComentario(value);
+
   const columnsIngredientes = [
     {
       title: "Ingredientes",
@@ -140,6 +185,33 @@ export default function Recetas() {
     },
   ];
 
+  const commentsheader = (
+    <div className="addComentSection">
+      <Row>
+        <Col className="avatardiv" span={5}>
+          <Avatar size={64} icon={<UserOutlined />} />
+          <h5>{auth.data.nombres}</h5>
+        </Col>
+        <Col className="content" span={19}>
+          <Input.TextArea
+            className="textArea"
+            value={comentario}
+            onChange={handleComentario}
+            autoSize={{ minRows: 3, maxRows: 5 }}
+          />
+        </Col>
+      </Row>
+      <Row className="buttonsSection">
+        <Button shape="round" type="danger" onClick={() => addComent()}>
+          Comentar
+        </Button>
+        <Button shape="round" type="danger" onClick={() => setComentario("")}>
+          Cancelar
+        </Button>
+      </Row>
+    </div>
+  );
+
   return (
     <>
       <div className="master-container">
@@ -151,16 +223,16 @@ export default function Recetas() {
               dataSource={baseDataReceta}
               renderItem={(item) => (
                 <List.Item
-                  // actions={[ isFavorito ? <Button shape="round"
-                  //   type="danger"
-                  //   icon={<HeartTwoTone twoToneColor="#eb2f96" />}
-                  //   onClick={() => modalRecetaFav()}
-                  // /> :
-                  //   <Button shape="round"
-                  //     type="dashed"
-                  //     icon={<HeartTwoTone twoToneColor="#eb2f96" />}
-                  //     onClick={() => modalRecetaFav()}
-                  //   />]}
+                  /* actions={[ isFavorito ? <Button shape="round"
+                    type="danger"
+                    icon={<HeartTwoTone twoToneColor="#eb2f96" />}
+                    onClick={() => modalRecetaFav()}
+                   /> :
+                    <Button shape="round"
+                      type="dashed"
+                     icon={<HeartTwoTone twoToneColor="#eb2f96" />}
+                      onClick={() => modalRecetaFav()}
+                     />]} */
                   extra={
                     isFavorito ? (
                       <>
@@ -205,9 +277,7 @@ export default function Recetas() {
                       </>
                     }
                   />
-                  <div class="estil-2">
-                    {item.descripcion}
-                  </div>
+                  <div class="estil-2">{item.descripcion}</div>
                 </List.Item>
               )}
             />
@@ -251,12 +321,10 @@ export default function Recetas() {
               {baseDataPreparacion.map((item, i = 0) => (
                 <>
                   <Col className="receta-card" span={12}>
-                    
-                    <Card 
+                    <Card
                       className="tarjeta"
                       hoverable
                       title={`Paso ${i + 1}`}
-                      
                       cover={
                         <Row>
                           <br />
@@ -287,8 +355,9 @@ export default function Recetas() {
             </Row>
           </div>
         </Col>
-        <br></br>              
-        
+        <br></br>
+        <dir></dir>
+
         {/* Coments Section */}
         <PageHeader className="site-page-header" title="Comentarios">
           <Divider style={{ marginTop: "10px" }} />
@@ -296,66 +365,39 @@ export default function Recetas() {
             className="lista-platillos"
             loading={isLoading}
             itemLayout="vertical"
+            header={commentsheader}
             dataSource={baseDataComentarios}
             bordered={false}
             pagination={{
               onChange: (page) => {},
-              pageSize: 4,
+              pageSize: 3,
               responsive: true,
               onShowSizeChange: (current, pageSize) =>
                 (this.pageSize = pageSize),
             }}
             renderItem={(item) => (
-              <List.Item
-                className="lista-objeto"
-                actions={[
-                  <Button
-                    className="boton-ver-recetas"
-                    shape="round"
-                    type="dashed"
-                    icon={<EyeOutlined />}
-                    /* href={`/cocina/platillos/${item._id}`} */
-                  >
-                    Ver recetas
-                  </Button>,
-                ]}
-              >
-                <List.Item.Meta
-                  className="lista-objeto-meta"
-                  avatar={
-                    item.avatarImage ? (
-                      <Avatar
-                        size={128}
-                        src="error"
-                        fallback="data:image/png;base64,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"
+              <List.Item>
+                <div className="comentBox">
+                  <Row>
+                    <Col className="avatardiv" span={4}>
+                      <Avatar size={64} icon={<UserOutlined />} />
+                      <h5>{item.username}</h5>
+                    </Col>
+                    <Col className="content" span={20}>
+                      <Input.TextArea
+                        className="content"
+                        disabled={true}
+                        value={item.content}
+                        placeholder=""
+                        autoSize={{ minRows: 3, maxRows: 5 }}
                       />
-                    ) : (
-                      <Avatar size={130} src={item.avatarImage} />
-                    )
-                  }
-                  title={`${item.username ? item.username : ""}`}
-                  description={item.content ? item.content : ""}
-                />
-                {
-                  {/* <div className="etiquetas">
-                    {item.categoria.map((catego) => {
-                      let color = catego.length > 5 ? "volcano" : "volcano";
-                      if (catego === "loser") {
-                        color = "volcano";
-                      }
-                      return (
-                        <Tag className="etiqueta" color={color} key={catego}>
-                          {catego.toUpperCase()}
-                        </Tag>
-                      );
-                    })}
-                  </div> */}
-                }
+                    </Col>
+                  </Row>
+                </div>
               </List.Item>
             )}
           />
         </PageHeader>
-
         <br />
       </div>
     </>
