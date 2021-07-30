@@ -19,7 +19,7 @@ import {
   AutoComplete,
 } from "antd";
 import { HeartTwoTone, UserOutlined } from "@ant-design/icons";
-import { EyeOutlined } from "@ant-design/icons";
+import { EyeOutlined, LikeOutlined, DislikeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import {
@@ -212,9 +212,41 @@ export default function Recetas() {
     </div>
   );
 
+  const editAssessment = (commentid, islike) => {
+    setBaseDataReceta((prevState) => {
+      const user = auth.data;
+      const [recetaEspecifica] = prevState;
+
+      const index = recetaEspecifica.comentarios.findIndex(
+        (element) => element._id == commentid
+      );
+
+      if (index !== -1) {
+        if (islike) recetaEspecifica.comentarios[index].likes++;
+        else recetaEspecifica.comentarios[index].dislikes++;
+      }
+      return [recetaEspecifica];
+    });
+  };
+
+  const useAssessment = (likes, dislikes, typeAssessment) => {
+    const [positives, setPositives] = useState(likes);
+    const [negatives, setNegatives] = useState(dislikes);
+    return (
+      <Row>
+        <Button icon={<LikeOutlined />} className="buttonlike">
+          <h5 className="contador">{positives}</h5>
+        </Button>
+        <Button icon={<DislikeOutlined />} className="buttonlike">
+          <h5 className="contador">{negatives}</h5>
+        </Button>
+      </Row>
+    );
+  };
+
   return (
     <>
-      <div className="master-container">
+      <div className="main-container">
         <Row>
           <Col span={23}>
             <List
@@ -380,10 +412,10 @@ export default function Recetas() {
                 <div className="comentBox">
                   <Row>
                     <Col className="avatardiv" span={4}>
-                      <Avatar size={64} icon={<UserOutlined />} />
-                      <h5>{item.username}</h5>
+                      <Avatar size={80} icon={<UserOutlined />} />
                     </Col>
                     <Col className="content" span={20}>
+                      <h5 className="username">{item.username}</h5>
                       <Input.TextArea
                         className="content"
                         disabled={true}
@@ -391,6 +423,27 @@ export default function Recetas() {
                         placeholder=""
                         autoSize={{ minRows: 3, maxRows: 5 }}
                       />
+                      {/*  <useAssessment
+                        likes={item.likes}
+                        dislikes={item.likes}
+                        typeAssessment="negative"
+                      /> */}
+                      <Row>
+                        <Button
+                          icon={<LikeOutlined />}
+                          className="buttonlike"
+                          onClick={() => editAssessment(item._id, true)}
+                        >
+                          <h5 className="contador">{item.likes}</h5>
+                        </Button>
+                        <Button
+                          icon={<DislikeOutlined />}
+                          className="buttonlike"
+                          onClick={() => editAssessment(item._id, false)}
+                        >
+                          <h5 className="contador">{item.dislikes}</h5>
+                        </Button>
+                      </Row>
                     </Col>
                   </Row>
                 </div>
