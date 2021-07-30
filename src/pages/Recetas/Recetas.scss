@@ -76,7 +76,6 @@
   overflow: hidden;
   max-width: 1200px;
   background-color: #e7e0dbe7;
-  
 }
 .plato {
   min-width: 300px;
@@ -184,9 +183,8 @@ $sz: 300px;
       7px 7px 15px rgba(55, 84, 170, 0.15),
       inset 0px 0px 4px rgba(255, 255, 255, 0.2) -7px -7px 20px
         rgba(255, 255, 255, 1);
-    
+
     margin: 5px;
-    
   }
 
   .ant-card-actions {
@@ -194,7 +192,7 @@ $sz: 300px;
     //width: 376px;
     //height: $sz*.2;
     border: 2.5px solid rgb(199, 198, 198);
-    background-color:#ddd1c8cc;
+    background-color: #ddd1c8cc;
     margin: 5px;
     // background: $mainD;
     border-radius: 5px;
@@ -236,10 +234,14 @@ $sz: 300px;
     align-items: center;
     justify-content: flex-end;
     padding: 10px;
-    Button{
+    Button {
       margin: 0px 5px;
     }
   }
+}
+
+.main-container {
+  padding: 10px auto;
 }
 
 .comentBox {
@@ -249,11 +251,27 @@ $sz: 300px;
     outline: none;
     justify-content: center;
     align-items: center;
+    .username {
+      text-align: center;
+    }
   }
   .content {
     text-align: justify;
     padding: 10px 15px;
     border-radius: 15px;
     resize: none;
+    .buttonlike {
+      display: flex;
+      flex-direction: row;
+      background-color: Transparent;
+      background-repeat: no-repeat;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      .contador{
+        margin: 0px 9px;
+      }
+    }
+    
   }
 }
