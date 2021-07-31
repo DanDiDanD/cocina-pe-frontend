@@ -56,7 +56,10 @@ export default function Login({ history }) {
   };
 
   return (
-    <Layout className="login">
+    <Layout>
+      <div className="login">
+
+      
       <Content 
       className="login-content"
       >
@@ -119,6 +122,7 @@ export default function Login({ history }) {
       >
           {modalContent}
       </Modal>
+    </div>
     </Layout>
   );
 }
