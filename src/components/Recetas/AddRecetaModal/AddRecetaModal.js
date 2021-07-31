@@ -124,23 +124,28 @@ export default function AddRecetaModal(props) {
 
 
   return (
-    <Form {...formItemLayout} name="basic" onFinish={onFinish} initialValues={{}}>
-      <Form.Item
-        label="Nombre:"
+    <Form {...formItemLayout} className ="form" name="basic" onFinish={onFinish} initialValues={{}}>
+      
+      <Form.Item 
+        
         name="nombre"
-        rules={[ {required: true, message: "Porfavor ingresa el nombre de la receta.",},
+        className="lbl-nombre"
+        rules={[ {required: true, message: "Ingrese el nombre de la receta.",},
         ]}
       >
-        <Input />
+      <span className="span-modal">Nombre</span>
+      <Input type = "text" className = "input-nombre"  size="large" placeholder="Ingrese el nombre de la receta"/>
       </Form.Item>
 
       
       <Form.Item
-        label="Platillo"
         name="platillo"
+        className="lbl-plato"
         rules={[{ required: true, message: "Este campo es obligatorio." }]}
       >
-        <Select>
+        <span className="span-modal">Plato</span>
+        <br></br>
+        <Select size="large" className = "select-plato" style = {{ width: 400 }} placeholder="Seleccione un plato">
           {platillos !== null
             ? platillos.map((item) => (
                 <Select.Option key={item._id} value={item._id}>{item.nombre}</Select.Option>
@@ -151,33 +156,36 @@ export default function AddRecetaModal(props) {
 
 
 
-      <Form.Item
-        label="Descripcion:"
+      <Form.Item 
         name="descripcion"
-        rules={[ {required: true, message: "Porfavor ingresa la descripción de la receta.",},
+        rules={[ {required: true, message: "Ingrese la descripción de la receta.",},
         ]}
       >
-        <TextArea rows={4} />
+        <span className="span-modal">Descripción</span>
+        <TextArea className = "input-modal" style = {{ width: 500 }} rows={5} />
       </Form.Item>
 
-      <Form.Item label="Porciones:">
+      <Form.Item >
         <Row gutter={8}>
           <Col span={8}>
             <Form.Item
               name="porciones"
-              rules={[ {required: true, message: "Porfavor ingresa la cantidad de porciones de la receta.",},
+              rules={[ {required: true, message: "Ingrese la cantidad de porciones de la receta.",},
             ]}
             >
-              <InputNumber  min={1} />
+              <span className="span-modal">Porciones</span>
+              <InputNumber className = "input-porcion" size="large"  min={1} />
             </Form.Item>
           </Col>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <Col >
             <Form.Item
-              label="Imagen principal:"
+             
               name="ruta_imagen"
-              rules={[ {required: true, message: "Porfavor ingresa una imagen para la receta.",},
+              rules={[ {required: true, message: "Ingrese la imagen para la receta.",},
             ]}
             >
+              <span className="span-modal">Imagen principal</span>
               <Upload
                 customRequest={dummyRequest}
                 listType="picture-card"
@@ -186,8 +194,9 @@ export default function AddRecetaModal(props) {
                 showUploadList={true}
                 onChange={onChange}
                 onPreview={onPreview}
+                className = "input-imagen"
               >
-                {fileList.length < 1 && '+ Upload'}
+                {fileList.length < 1 && '+ Imagen' }
               </Upload>
 
             </Form.Item>
@@ -199,8 +208,8 @@ export default function AddRecetaModal(props) {
 
       <Form.Item className="site-page-button">
         <div className="site-page-button">
-          <Button shape="round" type="primary" htmlType="submit">
-            Guardar
+          <Button className = "boton" shape="round" type="primary" htmlType="submit">
+            Guardar Receta
           </Button>
         </div>
       </Form.Item>

@@ -1,4 +1,33 @@
-.site-page-button {
-    display: flex;
-    justify-content: center;
+
+.form{
+    height: 660px;
+    max-width: 550px;
+
 }
+.span-modal{
+    font-family: "Homer Simpson UI";
+    font-size: large;
+    color: #428bca;
+}
+.input-nombre  {
+	border-radius: 10px;
+    width: 400px;
+}
+.input-modal  {
+    width: 1000px;
+	border-radius: 10px;
+}
+.select-plato  {
+    width: 2000%;
+	border-radius: 10px;
+}
+.input-porcion{
+    width: 100%;
+	border-radius: 10px;
+}
+
+.ant-select-selector{
+    border-radius: 30px;
+  }
+
+

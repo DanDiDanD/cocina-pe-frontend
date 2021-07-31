@@ -15,7 +15,7 @@ export default function Modal(props) {
       footer={footer}
       // maskClosable={false}
       destroyOnClose={true}
-      width={600}
+      width={500}
       {...other}
     >
       {children}
