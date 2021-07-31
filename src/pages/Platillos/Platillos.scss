@@ -70,6 +70,11 @@
   color: rgba(0, 0, 0, 0.528);
   font-size: 14px;
   line-height: 1.5715;
+  white-space: nowrap;
+  max-height: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 .ant-list-item-meta-title {
   margin-bottom: 0px !important;
@@ -90,3 +95,18 @@
   border-radius: 25px;
   margin: 10px auto;
 }
+.inline-block,.alinear-objetos .ant-list-item-extra,.alinear-objetos .ant-list-item-main{
+  display: inline-block;
+}
+.espacio-derecha{
+ border-right: 5px solid #e7e0dbe7
+}
+.alinear-objetos .ant-list-item-extra{
+margin-left: 8px!important;
+padding: 0!important;
+max-width: 30%;
+vertical-align: top;
+}
+.alinear-objetos .ant-list-item-main{
+max-width: 69%;
+  }
