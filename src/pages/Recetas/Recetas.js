@@ -311,15 +311,14 @@ export default function Recetas() {
 
     // Actualizacion del servicio
      const [recetaespeficia] = baseDataReceta;
-     //console.log("🚀 ~ file: Recetas.js ~ line 313 ~ editAppreciation ~ recetaespeficia", recetaespeficia.comentarios)
      
-    /* modificarReceta(recetaespeficia._id, recetaespeficia)
+    modificarReceta(recetaespeficia._id, recetaespeficia)
       .then((response) => {
         console.log("Actualizado")
       })
       .catch((error) => {
         console.log(error);
-      }); */
+      });
   };
 
   return (
