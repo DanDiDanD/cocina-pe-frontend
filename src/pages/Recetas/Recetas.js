@@ -221,10 +221,6 @@ export default function Recetas() {
 
   // funcion para comprobar el tipo de valoracion y el indice en el cual esta el usuario si lo valoro (positivamente o no)
   const typeAppreciation = (valoradores) => {
-    console.log(
-      "🚀 ~ file: Recetas.js ~ line 222 ~ typeAppreciation ~ valoradores",
-      valoradores
-    );
 
     const { positivos, negativos } = valoradores;
     const userid = auth.data._id;
@@ -258,14 +254,19 @@ export default function Recetas() {
         const {typeofAppreciation, indexofAppreciation} = typeAppreciation(
           recetaEspecifica.comentarios[index].valoradores
         );
+
+        console.log("🚀 ~ file: Recetas.js ~ line 255 ~ setBaseDataReceta ~ indexofAppreciation", indexofAppreciation)
+
+        
         // funciones de actualizacion
         const valoracionUpdates = {
           removeOff(type) {
-            recetaEspecifica.comentarios[index].valoradores[type] =
-              recetaEspecifica.comentarios[index].valoradores[type].splice(
-                indexofAppreciation,
-                1
-              );
+            recetaEspecifica.comentarios[index].valoradores[type].splice(
+              indexofAppreciation,
+              1
+            );
+              
+              console.log("🚀 ~ file: Recetas.js ~ line 261 ~ removeOff ~ recetaEspecifica.comentarios[index].valoradores[type]", recetaEspecifica.comentarios[index].valoradores[type])
           },
           addTo(type) {
             recetaEspecifica.comentarios[index].valoradores[type] = [
@@ -309,8 +310,10 @@ export default function Recetas() {
     });
 
     // Actualizacion del servicio
-    /*  const [recetaespeficia] = baseDataReceta;
-    modificarReceta(recetaespeficia._id, recetaespeficia)
+     const [recetaespeficia] = baseDataReceta;
+     //console.log("🚀 ~ file: Recetas.js ~ line 313 ~ editAppreciation ~ recetaespeficia", recetaespeficia.comentarios)
+     
+    /* modificarReceta(recetaespeficia._id, recetaespeficia)
       .then((response) => {
         console.log("Actualizado")
       })
@@ -522,7 +525,7 @@ export default function Recetas() {
                           icon={<DislikeOutlined />}
                           icon={
                             typeAppreciation(item.valoradores)
-                              .typeofAppreciation == "positivos" ? (
+                              .typeofAppreciation == "negativos" ? (
                               <DislikeTwoTone />
                             ) : (
                               <DislikeOutlined />
