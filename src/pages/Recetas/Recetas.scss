@@ -1,41 +1,39 @@
 // Cambios
 .list-users-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  //titulo de receta
-  .list-item-meta-receta .ant-list-item-meta-title{
-    color: rgba(0, 0, 0, 0.85);
-    font-size: 30px;
-    line-height: 24px;
-  }
-
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+//titulo de receta
+.list-item-meta-receta .ant-list-item-meta-title {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 30px;
+  line-height: 24px;
+}
 
 /* Scroll para pasos de recetas */
-.estil-1{
-  height: 100px;
-  overflow: auto ;
+.estil-1 {
+  height: 130px;
+  overflow: auto;
   //display: flex;
   display: grid;
   justify-content: center;
   align-items: center;
-  
+
   font-size: 16px;
   text-align: justify;
 }
 
 .estil-1::-webkit-scrollbar {
-  width: 8px;     /* Tamaño del scroll en vertical */
-  height: 8px;    /* Tamaño del scroll en horizontal */
-  display: true;  /* Ocultar scroll */
+  width: 8px; /* Tamaño del scroll en vertical */
+  height: 8px; /* Tamaño del scroll en horizontal */
+  display: true; /* Ocultar scroll */
 }
 
 .estil-1::-webkit-scrollbar-thumb {
   background: #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
@@ -57,199 +55,223 @@
 /* Cambiamos el fondo cuando esté en active o hover */
 .estil-1::-webkit-scrollbar-track:hover,
 .estil-1::-webkit-scrollbar-track:active {
-background: #d4d4d4;
+  background: #d4d4d4;
 }
-.fonCol{
+
+.estil-3 {
+  color: red;
+}
+
+.fonCol {
   background-color: #e7d3af;
   border-radius: 25px;
-  
+  border: 15px solid #e7d3af;
 }
 
-.tabIngred{
+.tabIngred {
   width: 600px;
-  
 }
 
-.tarjeta{
-  
+.tarjeta {
   overflow: hidden;
-  max-width: 1200px;  
+  max-width: 1200px;
   background-color: #e7e0dbe7;
-  
 }
-.plato{
-  min-width: 300px;  
+.plato {
+  min-width: 300px;
   border: 3px solid rgb(212, 212, 212);
   border-radius: 10px;
 }
-.col1{
-  margin: 15px auto;   
-  
+.col1 {
+  margin: 15px auto;
 }
-.col2{
-  margin: 10px auto;   
-  
+.col2 {
+  margin: 10px auto;
 }
 
-@media screen and (max-width: 1170px){
-  .fonCol{
+@media screen and (max-width: 1170px) {
+  .fonCol {
     min-width: 500px;
   }
-  .estil-2{
+  .estil-2 {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 1400px) {
-  .receta-card{
-    margin: 15px auto; 
-    min-width: 450px;  
-    
+  .receta-card {
+    margin: 15px auto;
+    min-width: 450px;
   }
-  .estil-1{
+  .estil-1 {
     font-size: 21spx;
   }
   .col1 {
-    //max-width: 1200px;  
+    //max-width: 1200px;
     min-width: 500px;
   }
   .col2 {
-    //max-width: 1200px;  
+    //max-width: 1200px;
     min-width: 470px;
   }
 
-  .tabIngred{
+  .tabIngred {
     min-width: auto;
   }
-  .plato{
-    min-width:  400px;
+  .plato {
+    min-width: 400px;
     border: 3px solid rgb(212, 212, 212);
     border-radius: 10px;
   }
-  
-  
 }
-@media screen and (min-width: 1700px){
-  
-  .estil-1{
+@media screen and (min-width: 1700px) {
+  .estil-1 {
     font-size: 18px;
   }
-  .estil-2{
+  .estil-2 {
     font-size: 17px;
   }
-  
 }
-@media screen and (min-width: 1900px){
-  
-  .estil-1{
+@media screen and (min-width: 1900px) {
+  .estil-1 {
     font-size: 20px;
   }
-  .estil-2{
+  .estil-2 {
     font-size: 20px;
   }
-  
 }
-@media screen and (min-width: 2000px){
-  
-  .estil-1{
+@media screen and (min-width: 2000px) {
+  .estil-1 {
     font-size: 21px;
   }
-  .estil-2{
+  .estil-2 {
     font-size: 21px;
   }
-  
 }
-@media screen and (min-width: 2100px){
-  
-  .estil-1{
+@media screen and (min-width: 2100px) {
+  .estil-1 {
     font-size: 23px;
   }
-  .estil-2{
+  .estil-2 {
     font-size: 23px;
   }
-  
 }
 
-
-  
-
-  
-$mainC:  hsl(33, 100%, 91%);
+$mainC: hsl(33, 100%, 91%);
 $mainD: hsl(40, 91%, 86%);
 $mainE: hsl(39, 81%, 69%);
 $secC: #9dabc0;
-$svgC: rgba(#929cd0, .8);
+$svgC: rgba(#929cd0, 0.8);
 $sz: 300px;
 
 %center {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .receta-card {
   .ant-card {
-  // @extend %center; 
-  //flex-direction: column;
-  // width: $sz;
-  // height: $sz*1.4;
-  border: 3px solid rgb(199, 198, 198);
-  // background: $mainC;
-  border-radius: 10px;
-  box-shadow: 
-    inset 0 0 15px rgba(55, 84, 170,0),
-    inset 0 0 20px rgba(255, 255, 255,0),
-    7px 7px 15px rgba(55, 84, 170,.15),
-    inset 0px 0px 4px rgba(255, 255, 255,.2)
-    -7px -7px 20px rgba(255, 255, 255,1);
-    
-    margin: 15px ;   
+    // @extend %center;
+    //flex-direction: column;
+    // width: $sz;
+    // height: $sz*1.4;
+    border: 3px solid rgb(199, 198, 198);
+    // background: $mainC;
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+      inset 0 0 20px rgba(255, 255, 255, 0),
+      7px 7px 15px rgba(55, 84, 170, 0.15),
+      inset 0px 0px 4px rgba(255, 255, 255, 0.2) -7px -7px 20px
+        rgba(255, 255, 255, 1);
+
+    margin: 5px;
   }
 
   .ant-card-actions {
-    @extend %center; 
+    @extend %center;
     //width: 376px;
     //height: $sz*.2;
-    border: 10px solid rgb(0, 0, 0);
+    border: 2.5px solid rgb(199, 198, 198);
+    background-color: #ddd1c8cc;
+    margin: 5px;
     // background: $mainD;
-    border-radius: 10px;
-    box-shadow: 
-    inset 0 0 15px rgba(55, 84, 170,0),
-    inset 0 0 20px rgba(255, 255, 255,0),
-    7px 7px 15px rgba(55, 84, 170,.15),
-    // -7px -7px 20px rgba(255, 255, 255,1),
-    inset 0px 0px 4px rgba(255, 255, 255,.2);
-    
+    border-radius: 5px;
+    box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+      inset 0 0 20px rgba(255, 255, 255, 0),
+      7px 7px 15px rgba(55, 84, 170, 0.15),
+      // -7px -7px 20px rgba(255, 255, 255,1),
+      inset 0px 0px 4px rgba(255, 255, 255, 0.2);
   }
-  .ant-card-bordered .ant-card-cover{
-    margin-left: 1px;
+  .ant-card-bordered .ant-card-cover {
+    margin: 2px;
     // margin-right: 1px;
     // margin-top: -80px;
-    
   }
 }
 
 .addComentSection {
   //background-color: red;
-  .avatardiv{
+  .avatardiv {
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     outline: none;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    //height: 60px;
   }
   .content {
     padding: 15px;
     display: flex;
-
+    .textArea {
+      text-align: justify;
+      padding: 10px 15px;
+      border-radius: 15px;
+      resize: none;
+    }
   }
-  .buttonsSection{
+  .buttonsSection {
     display: flex;
     outline: none;
     align-items: center;
     justify-content: flex-end;
-    padding: 15px;
+    padding: 10px;
+    Button {
+      margin: 0px 5px;
+    }
+  }
+}
+
+.main-container {
+  padding: 10px auto;
+}
+
+.comentBox {
+  .avatardiv {
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    .username {
+      text-align: center;
+    }
+  }
+  .content {
+    text-align: justify;
+    padding: 10px 15px;
+    border-radius: 15px;
+    resize: none;
+    .buttonlike {
+      display: flex;
+      flex-direction: row;
+      background-color: Transparent;
+      background-repeat: no-repeat;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      .contador{
+        margin: 0px 9px;
+      }
+    }
+    
   }
 }
