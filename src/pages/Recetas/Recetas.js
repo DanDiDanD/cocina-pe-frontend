@@ -19,7 +19,13 @@ import {
   AutoComplete,
 } from "antd";
 import { HeartTwoTone, UserOutlined } from "@ant-design/icons";
-import { EyeOutlined } from "@ant-design/icons";
+import {
+  EyeOutlined,
+  LikeOutlined,
+  DislikeOutlined,
+  LikeTwoTone,
+  DislikeTwoTone,
+} from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import {
@@ -45,6 +51,7 @@ export default function Recetas() {
   const [receta, setReceta] = useState(null);
   const { auth } = useContext(authContext);
   const [baseDataReceta, setBaseDataReceta] = useState([]);
+
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const [baseDataIngredientes, setBaseDataIngredientes] = useState([]);
   const [baseDataPreparacion, setBaseDataPreparacion] = useState([]);
@@ -212,9 +219,111 @@ export default function Recetas() {
     </div>
   );
 
+  // funcion para comprobar el tipo de valoracion y el indice en el cual esta el usuario si lo valoro (positivamente o no)
+  const typeAppreciation = (valoradores) => {
+
+    const { positivos, negativos } = valoradores;
+    const userid = auth.data._id;
+    const searchUserid = (valorador) => valorador == userid;
+    const iposti = positivos.findIndex(searchUserid);
+    const inega = negativos.findIndex(searchUserid);
+    if (iposti !== -1)
+      return {
+        typeofAppreciation: "positivos",
+        indexofAppreciation: iposti,
+      };
+    if (inega !== -1)
+      return {
+        typeofAppreciation: "negativos",
+        indexofAppreciation: inega,
+      };
+    return { typeofAppreciation: "no valorados", indexofAppreciation: -1 };
+  };
+
+  const editAppreciation = (commentid, islike) => {
+    setBaseDataReceta((prevState) => {
+      const userid = auth.data._id;
+      const [recetaEspecifica] = prevState;
+
+      const index = recetaEspecifica.comentarios.findIndex(
+        (element) => element._id == commentid
+      );
+
+      if (index !== -1) {
+        // Comprobacion de si el comentario ya fue valorado
+        const {typeofAppreciation, indexofAppreciation} = typeAppreciation(
+          recetaEspecifica.comentarios[index].valoradores
+        );
+
+        console.log("🚀 ~ file: Recetas.js ~ line 255 ~ setBaseDataReceta ~ indexofAppreciation", indexofAppreciation)
+
+        
+        // funciones de actualizacion
+        const valoracionUpdates = {
+          removeOff(type) {
+            recetaEspecifica.comentarios[index].valoradores[type].splice(
+              indexofAppreciation,
+              1
+            );
+              
+              console.log("🚀 ~ file: Recetas.js ~ line 261 ~ removeOff ~ recetaEspecifica.comentarios[index].valoradores[type]", recetaEspecifica.comentarios[index].valoradores[type])
+          },
+          addTo(type) {
+            recetaEspecifica.comentarios[index].valoradores[type] = [
+              ...recetaEspecifica.comentarios[index].valoradores[type],
+              userid,
+            ];
+          },
+        };
+
+        if (typeofAppreciation == "positivos") {
+          if (islike) {
+            recetaEspecifica.comentarios[index].likes--;
+            valoracionUpdates.removeOff("positivos");
+          } else {
+            recetaEspecifica.comentarios[index].likes--;
+            valoracionUpdates.removeOff("positivos");
+            recetaEspecifica.comentarios[index].dislikes++;
+            valoracionUpdates.addTo("negativos");
+          }
+        } else if (typeofAppreciation == "negativos") {
+          if (islike) {
+            recetaEspecifica.comentarios[index].likes++;
+            valoracionUpdates.addTo("positivos");
+            recetaEspecifica.comentarios[index].dislikes--;
+            valoracionUpdates.removeOff("negativos");
+          } else {
+            recetaEspecifica.comentarios[index].dislikes--;
+            valoracionUpdates.removeOff("negativos");
+          }
+        } else {
+          if (islike) {
+            recetaEspecifica.comentarios[index].likes++;
+            valoracionUpdates.addTo("positivos");
+          } else {
+            recetaEspecifica.comentarios[index].dislikes++;
+            valoracionUpdates.addTo("negativos");
+          }
+        }
+      }
+      return [recetaEspecifica];
+    });
+
+    // Actualizacion del servicio
+     const [recetaespeficia] = baseDataReceta;
+     
+    modificarReceta(recetaespeficia._id, recetaespeficia)
+      .then((response) => {
+        console.log("Actualizado")
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
-      <div className="master-container">
+      <div className="main-container">
         <Row>
           <Col span={23}>
             <List
@@ -380,10 +489,10 @@ export default function Recetas() {
                 <div className="comentBox">
                   <Row>
                     <Col className="avatardiv" span={4}>
-                      <Avatar size={64} icon={<UserOutlined />} />
-                      <h5>{item.username}</h5>
+                      <Avatar size={80} icon={<UserOutlined />} />
                     </Col>
                     <Col className="content" span={20}>
+                      <h5 className="username">{item.username}</h5>
                       <Input.TextArea
                         className="content"
                         disabled={true}
@@ -391,6 +500,43 @@ export default function Recetas() {
                         placeholder=""
                         autoSize={{ minRows: 3, maxRows: 5 }}
                       />
+                      {/*  <useAppreciation
+                        likes={item.likes}
+                        dislikes={item.likes}
+                        typeAppreciation="negative"
+                      /> */}
+                      <Row>
+                        <Button
+                          icon={
+                            typeAppreciation(item.valoradores)
+                              .typeofAppreciation == "positivos" ? (
+                              <LikeTwoTone />
+                            ) : (
+                              <LikeOutlined />
+                            )
+                          }
+                          className="buttonlike"
+                          onClick={() => editAppreciation(item._id, true)}
+                        >
+                          <h5 className="contador">{item.likes}</h5>
+                        </Button>
+                        <Button
+                          icon={<DislikeOutlined />}
+                          icon={
+                            typeAppreciation(item.valoradores)
+                              .typeofAppreciation == "negativos" ? (
+                              <DislikeTwoTone />
+                            ) : (
+                              <DislikeOutlined />
+                            )
+                          }
+                          className="buttonlike"
+                          /* ghost={ typeAppreciation(item.valoradores).typeofAppreciation == "negativos" } */
+                          onClick={() => editAppreciation(item._id, false)}
+                        >
+                          <h5 className="contador">{item.dislikes}</h5>
+                        </Button>
+                      </Row>
                     </Col>
                   </Row>
                 </div>

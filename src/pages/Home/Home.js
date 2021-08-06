@@ -127,14 +127,14 @@ export default function Home() {
                           />
                         )
                       }
-                      actions={[<span>Ver recetas</span>]}
+                      actions={[<span className="boton-sugerencia-card">Ver recetas</span>]}
                       onClick={() => recetaCard(indice)}
                     >
                       <Meta
                         title={platillos[indice].nombre}
                         description={`${platillos[indice].descripcion.substring(
                           0,
-                          128
+                          155
                         )}...`}
                       />
                     </Card>
@@ -160,8 +160,11 @@ export default function Home() {
       {/* <div className="div-image">
         <Image src={image} className="site-page-image" preview={false} />
       </div> */}
-      <HomeCarousel />
+      <div className="carousel-container">
+        <HomeCarousel />
+      </div>
       <div className="main-container inicio-autenticado">
+        <div>
         <PageHeader title="¿Qué deseas comer hoy?" className="container-title">
           <div className="container">{cardHTML}</div>
           <br/>
@@ -175,11 +178,12 @@ export default function Home() {
                 icon={<HomeOutlined />}
                 onClick={recargarPlatillos}
               >
-                Recargar
+                Más sugerencias
               </Button>
             </Col>
           </Row>
         </PageHeader>
+        </div>
       </div>
     </>
   );
