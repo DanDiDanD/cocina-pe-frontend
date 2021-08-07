@@ -1,0 +1,113 @@
+.premium-css{
+    background-image: url("../../assets/img/png/fondo2.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: calc(100vh - 111px);
+
+    &_container{
+        margin: 0px 120px 0px 120px;
+        background: linear-gradient(
+            to bottom right,
+            rgba(255,255,255,0.2),
+            rgba(255,255,255,0.05)
+        );
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.5),
+        -0.5px -0.5px 1px #aaa,
+        0.5px 0.5px 1px #555;
+        backdrop-filter: blur(0.8rem);
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+
+    &_input{
+      border-radius: 12px;
+      background: linear-gradient(
+          to bottom right,
+          rgba(255,255,255,1),
+          rgba(255,255,255,0.5)
+      );
+      // box-shadow: 0 1rem 2rem rgba(0,0,0,0.5),
+      // -0.5px -0.5px 1px #aaa,
+      // 0.5px 0.5px 1px #555;
+      // backdrop-filter: blur(0.8rem);
+      // padding: 1.5rem;
+      // border-radius: 1rem;
+    }
+}
+
+
+.rccs {
+    // margin: 0px 0px 20px 0px;
+    margin: auto;
+    width: 390px;
+    // width: 95%;
+    height: 240px;
+    // height: 95.5%;
+  
+    &__card{
+      width: 390px;
+      // width: 95%;
+      height: 240px;
+      // height: 95.5%;
+    }
+  
+    &__issuer{
+      // background-size: 40%;
+      width: 50%;
+      height: 30%;
+    }
+    &__name{
+      font-size: 20px;
+      // font-size: 150%;
+    }
+    &__number{
+      font-size: 30px
+      // font-size: 220%
+    }
+    &__cvc{
+      font-size: 18px
+    }
+    &__expiry{
+  
+      &__valid{
+        font-size: 14px;
+      }
+      &__value{
+        font-size: 20px;
+      }
+  
+    }
+    &__chip{
+      width: 30%;
+      height: 18%;
+    }
+  }
+  
+  @media only screen and (max-width: 1700px) {
+    .rccs {
+        margin: 0px 0px 0px 0px;
+      width: 290px;
+      height: 182px;
+      }
+  
+      .rccs__card {    
+          width: 290px;
+          height: 182px;
+      }
+  }
+
+  .container-title{
+    text-align: center;
+  }
+
+  .site-page-button-premium {
+    display: flex;
+    justify-content: center;
+}
+
+.boton-premium{
+  font-size: 25px !important;
+  padding: 5px 30px 45px 30px !important;
+  
+}
