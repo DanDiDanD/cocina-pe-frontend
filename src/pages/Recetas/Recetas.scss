@@ -217,10 +217,15 @@ $sz: 300px;
     outline: none;
     justify-content: center;
     align-items: center;
+    .username {
+      text-align: center;
+    }
   }
   .content {
-    padding: 15px;
-    display: flex;
+    text-align: justify;
+    padding: 10px 15px;
+    border-radius: 15px;
+    resize: none;
     .textArea {
       text-align: justify;
       padding: 10px 15px;
