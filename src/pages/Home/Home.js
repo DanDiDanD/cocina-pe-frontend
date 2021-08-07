@@ -70,9 +70,6 @@ export default function Home() {
       content: contenido,
       okText: text,
       okType: "danger",
-      onOk() {
-        window.location.href = '/cocina/premium'
-      },
       cancelText: "Ahora no",
     });
   };

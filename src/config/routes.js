@@ -9,7 +9,6 @@ import Perfil from "../pages/Perfil";
 import Recetas from "../pages/Recetas";
 import EditReceta from "../pages/Recetas/EditReceta";
 import Favoritos from "../pages/Favoritos";
-import Premium from "../pages/Premium";
 import { Error404 } from "../pages/Error404";
 import { RUTAS } from "../config/constantes";
 
@@ -57,11 +56,6 @@ const routes = [
       {
         path: RUTAS.favorito,
         component: Favoritos,
-        exact: true,
-      },
-      {
-        path: RUTAS.premium,
-        component: Premium,
         exact: true,
       },
       {
