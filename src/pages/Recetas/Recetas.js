@@ -160,6 +160,10 @@ export default function Recetas() {
           content: comentario,
           likes: 0,
           dislikes: 0,
+          valoradores: {
+            positivos: [],
+            negativos: []
+          }
         },
         ...recetaEspecifica.comentarios,
       ];
