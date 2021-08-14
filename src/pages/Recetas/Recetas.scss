@@ -78,9 +78,11 @@
   background-color: #e7e0dbe7;
 }
 .plato {
-  min-width: 300px;
+  min-width: 600px;
   border: 3px solid rgb(212, 212, 212);
-  border-radius: 10px;
+  border-radius: 20px;
+  margin: 2px;
+  overflow: hidden;
 }
 .col1 {
   margin: 15px auto;
@@ -217,10 +219,15 @@ $sz: 300px;
     outline: none;
     justify-content: center;
     align-items: center;
+    .username {
+      text-align: center;
+    }
   }
   .content {
-    padding: 15px;
-    display: flex;
+    text-align: justify;
+    padding: 10px 15px;
+    border-radius: 15px;
+    resize: none;
     .textArea {
       text-align: justify;
       padding: 10px 15px;

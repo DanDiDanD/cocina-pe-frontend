@@ -19,7 +19,13 @@ import {
   AutoComplete,
 } from "antd";
 import { HeartTwoTone, UserOutlined } from "@ant-design/icons";
-import { EyeOutlined, LikeOutlined, DislikeOutlined } from "@ant-design/icons";
+import {
+  EyeOutlined,
+  LikeOutlined,
+  DislikeOutlined,
+  LikeTwoTone,
+  DislikeTwoTone,
+} from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 import {
@@ -45,6 +51,7 @@ export default function Recetas() {
   const [receta, setReceta] = useState(null);
   const { auth } = useContext(authContext);
   const [baseDataReceta, setBaseDataReceta] = useState([]);
+
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const [baseDataIngredientes, setBaseDataIngredientes] = useState([]);
   const [baseDataPreparacion, setBaseDataPreparacion] = useState([]);
@@ -153,6 +160,10 @@ export default function Recetas() {
           content: comentario,
           likes: 0,
           dislikes: 0,
+          valoradores: {
+            positivos: [],
+            negativos: []
+          }
         },
         ...recetaEspecifica.comentarios,
       ];
@@ -188,11 +199,11 @@ export default function Recetas() {
   const commentsheader = (
     <div className="addComentSection">
       <Row>
-        <Col className="avatardiv" span={5}>
-          <Avatar size={64} icon={<UserOutlined />} />
-          <h5>{auth.data.nombres}</h5>
+        <Col className="avatardiv" span={4}>
+          <Avatar size={80} icon={<UserOutlined />} />
+          <h5 className="username">{auth.data.nombres}</h5>
         </Col>
-        <Col className="content" span={19}>
+        <Col className="content" span={20}>
           <Input.TextArea
             className="textArea"
             value={comentario}
@@ -212,9 +223,30 @@ export default function Recetas() {
     </div>
   );
 
-  const editAssessment = (commentid, islike) => {
+  // funcion para comprobar el tipo de valoracion y el indice en el cual esta el usuario si lo valoro (positivamente o no)
+  const typeAppreciation = (valoradores) => {
+
+    const { positivos, negativos } = valoradores;
+    const userid = auth.data._id;
+    const searchUserid = (valorador) => valorador == userid;
+    const iposti = positivos.findIndex(searchUserid);
+    const inega = negativos.findIndex(searchUserid);
+    if (iposti !== -1)
+      return {
+        typeofAppreciation: "positivos",
+        indexofAppreciation: iposti,
+      };
+    if (inega !== -1)
+      return {
+        typeofAppreciation: "negativos",
+        indexofAppreciation: inega,
+      };
+    return { typeofAppreciation: "no valorados", indexofAppreciation: -1 };
+  };
+
+  const editAppreciation = (commentid, islike) => {
     setBaseDataReceta((prevState) => {
-      const user = auth.data;
+      const userid = auth.data._id;
       const [recetaEspecifica] = prevState;
 
       const index = recetaEspecifica.comentarios.findIndex(
@@ -222,33 +254,82 @@ export default function Recetas() {
       );
 
       if (index !== -1) {
-        if (islike) recetaEspecifica.comentarios[index].likes++;
-        else recetaEspecifica.comentarios[index].dislikes++;
+        // Comprobacion de si el comentario ya fue valorado
+        const {typeofAppreciation, indexofAppreciation} = typeAppreciation(
+          recetaEspecifica.comentarios[index].valoradores
+        );
+
+        console.log("🚀 ~ file: Recetas.js ~ line 255 ~ setBaseDataReceta ~ indexofAppreciation", indexofAppreciation)
+
+        
+        // funciones de actualizacion
+        const valoracionUpdates = {
+          removeOff(type) {
+            recetaEspecifica.comentarios[index].valoradores[type].splice(
+              indexofAppreciation,
+              1
+            );
+              
+              console.log("🚀 ~ file: Recetas.js ~ line 261 ~ removeOff ~ recetaEspecifica.comentarios[index].valoradores[type]", recetaEspecifica.comentarios[index].valoradores[type])
+          },
+          addTo(type) {
+            recetaEspecifica.comentarios[index].valoradores[type] = [
+              ...recetaEspecifica.comentarios[index].valoradores[type],
+              userid,
+            ];
+          },
+        };
+
+        if (typeofAppreciation == "positivos") {
+          if (islike) {
+            recetaEspecifica.comentarios[index].likes--;
+            valoracionUpdates.removeOff("positivos");
+          } else {
+            recetaEspecifica.comentarios[index].likes--;
+            valoracionUpdates.removeOff("positivos");
+            recetaEspecifica.comentarios[index].dislikes++;
+            valoracionUpdates.addTo("negativos");
+          }
+        } else if (typeofAppreciation == "negativos") {
+          if (islike) {
+            recetaEspecifica.comentarios[index].likes++;
+            valoracionUpdates.addTo("positivos");
+            recetaEspecifica.comentarios[index].dislikes--;
+            valoracionUpdates.removeOff("negativos");
+          } else {
+            recetaEspecifica.comentarios[index].dislikes--;
+            valoracionUpdates.removeOff("negativos");
+          }
+        } else {
+          if (islike) {
+            recetaEspecifica.comentarios[index].likes++;
+            valoracionUpdates.addTo("positivos");
+          } else {
+            recetaEspecifica.comentarios[index].dislikes++;
+            valoracionUpdates.addTo("negativos");
+          }
+        }
       }
       return [recetaEspecifica];
     });
-  };
 
-  const useAssessment = (likes, dislikes, typeAssessment) => {
-    const [positives, setPositives] = useState(likes);
-    const [negatives, setNegatives] = useState(dislikes);
-    return (
-      <Row>
-        <Button icon={<LikeOutlined />} className="buttonlike">
-          <h5 className="contador">{positives}</h5>
-        </Button>
-        <Button icon={<DislikeOutlined />} className="buttonlike">
-          <h5 className="contador">{negatives}</h5>
-        </Button>
-      </Row>
-    );
+    // Actualizacion del servicio
+     const [recetaespeficia] = baseDataReceta;
+     
+    modificarReceta(recetaespeficia._id, recetaespeficia)
+      .then((response) => {
+        console.log("Actualizado")
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <>
       <div className="main-container">
         <Row>
-          <Col span={23}>
+          <Col span={24}>
             <List
               loading={isLoading}
               itemLayout="vertical"
@@ -318,13 +399,13 @@ export default function Recetas() {
         <Divider />
 
         <Row>
-          <Col span={6} offset={1}>
+          <Col span={12} offset={1}>
             <h2> Lista de ingredientes</h2>{" "}
           </Col>
         </Row>
 
         <Row>
-          <Col className="col1" span={14}>
+          <Col className="col1" span={12}>
             <Table
               className="tabIngred"
               size="middle"
@@ -337,7 +418,7 @@ export default function Recetas() {
               {...props}
             />
           </Col>
-          <Col className="col2" span={9}>
+          <Col className="col2" span={12}>
             <Image className="plato" preview={true} src={imagen} />
           </Col>
         </Row>
@@ -347,28 +428,30 @@ export default function Recetas() {
           <h2>Preparación</h2>
         </Row>
 
-        <Col className="fonCol" span={"auto"}>
+        <Col className="fonCol" span={"auto"}  >
           <div className="site-card-wrapper">
             <Row gutter={12}>
               {baseDataPreparacion.map((item, i = 0) => (
                 <>
-                  <Col className="receta-card" span={12}>
+                  <Col className="receta-card" 
+                    span={12}>
+                    
                     <Card
                       className="tarjeta"
                       hoverable
                       title={`Paso ${i + 1}`}
                       cover={
-                        <Row>
+                        <Row >
                           <br />
-
                           {item.url_imagen.length != 0 ? (
                             <Avatar
-                              size={300}
+                              size={600}
                               style={{
                                 margin: 15,
                                 width: "auto",
                                 minHeight: "600",
-                                borderRadius: 10,
+                                borderRadius: 20,
+                                aling: "center",
                               }}
                               src={item.url_imagen}
                               shape="square"
@@ -423,23 +506,39 @@ export default function Recetas() {
                         placeholder=""
                         autoSize={{ minRows: 3, maxRows: 5 }}
                       />
-                      {/*  <useAssessment
+                      {/*  <useAppreciation
                         likes={item.likes}
                         dislikes={item.likes}
-                        typeAssessment="negative"
+                        typeAppreciation="negative"
                       /> */}
                       <Row>
                         <Button
-                          icon={<LikeOutlined />}
+                          icon={
+                            typeAppreciation(item.valoradores)
+                              .typeofAppreciation == "positivos" ? (
+                              <LikeTwoTone />
+                            ) : (
+                              <LikeOutlined />
+                            )
+                          }
                           className="buttonlike"
-                          onClick={() => editAssessment(item._id, true)}
+                          onClick={() => editAppreciation(item._id, true)}
                         >
                           <h5 className="contador">{item.likes}</h5>
                         </Button>
                         <Button
                           icon={<DislikeOutlined />}
+                          icon={
+                            typeAppreciation(item.valoradores)
+                              .typeofAppreciation == "negativos" ? (
+                              <DislikeTwoTone />
+                            ) : (
+                              <DislikeOutlined />
+                            )
+                          }
                           className="buttonlike"
-                          onClick={() => editAssessment(item._id, false)}
+                          /* ghost={ typeAppreciation(item.valoradores).typeofAppreciation == "negativos" } */
+                          onClick={() => editAppreciation(item._id, false)}
                         >
                           <h5 className="contador">{item.dislikes}</h5>
                         </Button>
