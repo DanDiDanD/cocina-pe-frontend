@@ -8,6 +8,10 @@ import {
   InputNumber,
   Typography,
   PageHeader,
+  Card,
+  Space,
+  Divider,
+  Radio,
   Modal as ModalAs,
 } from "antd";
 import Cards from 'react-credit-cards';
@@ -19,6 +23,8 @@ import "./Premium.scss";
 import "../Container.scss";
 
 const { confirm } = ModalAs;
+
+const {Text, Title} = Typography
 
 export default function Premium() {
     const [cvc, setCvc] = useState('');
@@ -52,11 +58,61 @@ export default function Premium() {
     return (
     <div className="premium-css">
         <div className="main-container">
-        <div>
-            <div className="premium-css_container">
-            <PageHeader title="Método de pago" className="container-title"></PageHeader>
+        <div className="premium-css_container">
+
+            <br/>
+            <br/>
+            <Title level={2} className="container-title">Elige tu tipo de suscripción</Title>
+            <div className="premium-card_precios_content">
+                <br/>
+            <Text className="text-precios_contenido_footer">Pasa a convertirte en miembro de la comunidad de Cocina Pe y ten acceso a los más de 10 mil platos que tenemos para ti.</Text>
+            </div>
+            <br/>
+            <Divider/>
             <Row>
-                <Col span={9} >
+                <Col span={8}>
+                    <Card className="premium-card_precios">
+                        <div className="premium-card_precios_content">
+                            <Title level={3} className="text-precios_title">Estándar</Title>
+                            <Text className="text-precios_contenido">Adquiere tu suscripción a la comunidad de Cocina Pe durante <Text className="text-precios_contenido_tiempo">un(1) mes</Text>   </Text>
+                            <br/><br/>
+                            <br/>
+                            <Text className="text-precios_contenido_soles">S/11.96*</Text>
+                            <Text>PEN</Text>
+                            <Text keyboard className="text-precios_contenido_dolares">$2.99</Text>
+                        </div>
+                    </Card>
+                </Col>
+                <Col span={8}>
+                    <Card className="premium-card_precios">
+                        <div className="premium-card_precios_content">
+                            <Title level={3} className="text-precios_title">Yapa</Title>
+                            <Text className="text-precios_contenido">Adquiere tu suscripción premium por  <Text className="text-precios_contenido_tiempo">tres(3) meses </Text>y ahorra un 11% del costo total </Text>
+                            <br/><br/>
+                            <br/>
+                            <Text className="text-precios_contenido_soles">S/23.97*</Text>
+                            <Text>PEN</Text>
+                            <Text keyboard className="text-precios_contenido_dolares">$7.99</Text>
+                        </div>
+                    </Card>
+                </Col>
+                <Col span={8}>
+                    <Card className="premium-card_precios">
+                        <div className="premium-card_precios_content">
+                            <Title level={3} className="text-precios_title">Super Yapa</Title>
+                            <Text className="text-precios_contenido">Adquiere tu suscripción premium por  <Text className="text-precios_contenido_tiempo">seis(6) meses </Text>y ahorra un 20% del costo total </Text>
+                            <br/><br/>
+                            <br/>
+                            <Text className="text-precios_contenido_soles">S/59.96*</Text>
+                            <Text>PEN</Text>
+                            <Text keyboard className="text-precios_contenido_dolares">$14.99</Text>
+                        </div>
+                    </Card>
+                </Col>
+            </Row>
+            <Divider />
+            <Row>
+                <Col span={8} >
                     <Cards
                         cvc={cvc}
                         expiry={expiry}
@@ -65,7 +121,8 @@ export default function Premium() {
                         number={number}
                     />
                 </Col>
-                <Col span={12} offset={1}>
+                <Col span={16}>
+                    <div className="premium-card">
                     <Form name="basic" onFinish={onFinish}>
                         <Form.Item
                             name="number"
@@ -130,6 +187,16 @@ export default function Premium() {
                             onFocus={handleInputFocus}
                             />
                         </Form.Item>
+                        <Form.Item
+                            name="radio"
+                            rules={[{ required: true, message: 'Rellenar el campo!' }]}
+                        >
+                            <Radio.Group>
+                                <Radio value={1}>Estandar</Radio>
+                                <Radio value={2}>Yapa</Radio>
+                                <Radio value={3}>Super Yapa</Radio>
+                            </Radio.Group>
+                        </Form.Item>
                         <Form.Item className="site-page-button">
                             <div className="site-page-button-premium">
                             <Button shape="round" size="large" type="primary" htmlType="submit" className="boton-premium">
@@ -138,12 +205,16 @@ export default function Premium() {
                             </div>
                         </Form.Item>
                     </Form>
+                    </div>
                 </Col>
             </Row>
- 
+            <Divider />
+            <div className="container-footer">
+                <Text className="text-precios_contenido_footer">* El precio en tu moneda local es solo una estimación. Se te cobrará el precio mostrado en dólares para todas las transacciones.</Text>
             </div>
-            <br/>
+
         </div>
+        <br/>
         </div>
     </div>
     );
