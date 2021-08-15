@@ -1,47 +1,118 @@
-.container-platillos { 
-//  background-image: url("../../assets/img/png/fondofrutas.jpg");
+*{
+  font-family:sans-serif;
+}
+
+.ant-layout-content {
+  // background-image: url("../../assets/img/png/fondofrutas.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   
 }
-.site-page-header {
-  background-color: #e7e0dbe7;
+.site-page-header { // contiene las tarjetas
+  background-color: #e7e0dbf5;
   border-radius: 25px;
+  margin: 50px auto!important;
+//  backdrop-filter: blur(2px);
 }
 //.lista-platillos {background-color: #6e20ebe7;}
 .lista-objeto {
   background-color: #e7d3af;
-  border-width: 30px;
   border-radius: 25px;
-  width: 90%;
-  max-width:1000px;
+  width: 100%;
   margin: 10px auto;
+  
 }
-.lista-objeto-meta { //Contenido de platillos
-//  background-color: #c29d25c0;
+.lista-objeto-meta {//Contenido de platillos
   text-align: justify;
   width: 95%;
-  margin: 1px auto;
+  margin: 1px auto!important;
 }
-.etiquetas{
-  border-width: 10px;
-  width: 90%; 
-  margin: 20px auto;
+.etiquetas {
+  width: 95%;
+  margin: 10px auto;
 }
-.etiqueta{
+.etiqueta {
   justify-content: center;
-  border-radius: 25px;
+  border-radius: 10px;
   margin: 1px auto;
 }
 
-.ant-list-item-action{
-//  background-color: #e29219;
+.ant-list-item-action {
   display: flex;
   justify-content: center;
 }
-.boton-ver-recetas{
+
+.boton-ver-recetas {
   background-color: #e6c740;
-//  display: flex;
+  border-style: none;
   justify-content: center;
-  }
+  padding: 0.5em 1.2em;
+  position: relative;
+}
+
+.boton-ver-recetas:hover {
+  background-color: #e6c740 !important;
+  color: rgb(15, 15, 15) !important;
+  box-shadow: 0 4px 16px rgba(46, 48, 40, 0.644) !important;
+  transition: all 0.2s ease !important;
+}
+
+.lista-imagen-platillo {
+  border-radius: 50%;
+}
+
+.lista-descripcion-receta {
+  text-align: justify;
+  padding-left: 23px;
+  padding-right: 15px;
+  color: rgba(0, 0, 0, 0.528);
+  font-size: 14px;
+  line-height: 1.5715;
+  white-space: nowrap;
+  max-height: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+.ant-list-item-meta-title {
+  margin-bottom: 0px !important;
+}
+.ant-list-item-meta-avatar {
+  margin-top: 2px;
+  margin-right: 8px;
+}
+.ant-list-item-extra{
+  padding: 15px;
+}
+.ant-list-item-extra img{
+  border-radius: 50%;
+}
+.lista-fila {
+  background-color: #e7d3afec;
+  border-width: 30px;
+  border-radius: 25px;
+  margin: 10px auto;
+}
+.inline-block,.alinear-objetos .ant-list-item-extra,.alinear-objetos .ant-list-item-main{
+  display: inline-block;
+}
+
+.ant-list-item-main{
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.espacio-derecha{
+ border-right: 5px solid #e7e0dbe7
+}
+.alinear-objetos .ant-list-item-extra{
+margin-left: 8px!important;
+padding: 0!important;
+max-width: 30%;
+vertical-align: top;
+}
+
+.alinear-objetos .ant-list-item-main{
+max-width: 69%;
+ }

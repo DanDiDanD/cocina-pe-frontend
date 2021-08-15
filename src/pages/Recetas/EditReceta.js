@@ -320,15 +320,17 @@ export default function EditRecetas() {
       <Divider/>
 
       <Row>
-        <Col span={6} offset={1}><h2>Lista de ingredientes</h2> </Col>
-        <Col offset={2}><Button shape="round" type='primary' onClick={()=>addIngrediente(id)} >Agregar ingrediente</Button></Col>
+        <Col span={6} ><h2>Lista de ingredientes</h2> </Col>
+        <Col  offset={2}><Button shape="round" type='primary' onClick={()=>addIngrediente(id)} >Agregar ingrediente</Button></Col>
       </Row>
+      
+      
 
       <Row>
-        <Col span={1}></Col>
-        <Col span={11}>
+        <Col className="col1" span={12}>
 
           <Table
+              className="tabIngred"
               size="middle"
               columns={columnsIngredientes}
               dataSource={baseDataIngredientes}
@@ -338,49 +340,62 @@ export default function EditRecetas() {
               pagination={false}
             />
         </Col>
-        <Col span={2}></Col>
-        <Col span={9}>
-          <Image preview={true} src={imagen}/>
+        <Col className="col2"  span={12}>
+          <Image className="plato" preview={true} src={imagen}/>
         </Col>
-        <Col span={1}></Col>
       </Row>
       <Divider />
+
       <Row>
-        <Col span={6} offset={1}><h2> Preparación</h2> </Col>
-        <Col offset={14}><Button shape="round" type='primary' onClick={()=>addPreparacion(id)} >Agregar paso</Button></Col>
-        
+        <Col span={12}><h2> Preparación</h2> </Col>
+        <Col span={12}><Button shape="round" type='primary' onClick={()=>addPreparacion(id)} >Agregar paso</Button></Col>
       </Row>
+      
       <Row>
-        <Col span={24}>
+        <Col className="fonCol" span={"auto"}>
           <div className="site-card-wrapper">
-            <Row gutter={16}>
-              {
-                baseDataPreparacion.map((item, i=0) => (
+            <Row gutter={12}>
+              {baseDataPreparacion.map((item, i=0) => (
                   <>
-                    <Col span={1}></Col>
-                    <Col span={6}>
-                      <div className='receta-card'>
-                      <Card type="inner" style={{ width: 380, marginBottom: 18 }}hoverable title={`Paso ${i + 1}`} bordered={true} cover={
+                    <Col className="receta-card" span={12}>
+                      
+                      <Card 
+                        className="tarjeta" 
+                        hoverable 
+                        title={`Paso ${i + 1}`} 
+                        cover={
                           <Row>
-                            <Col span={22} offset={1}>
-                              <br/>
-                              {item.url_imagen.length != 0 ? ( <Avatar size={350}
+                            <br />
+                            {item.url_imagen.length != 0 ? (
+                              <Avatar
+                                size={600}
+                                style={{
+                                  margin: 15,
+                                  width: "auto",
+                                  minHeight: "600",
+                                  borderRadius: 10,
+                                }}
                                 src={item.url_imagen}
                                 shape="square"
-                              />) : (<></>)}
-                            </Col>
+                              />
+                            ) : (
+                              <br></br>
+                            )}
+                            
                           </Row>
                       }
-                      actions={[
-                        <EditOutlined key="edit" onClick={()=>editPreparacion(id,item.detalle, item.url_imagen)}/>,
-                        <DeleteOutlined key="delete" onClick={()=>deletePreparacion(item.detalle)}/>
-                      ]}
+                      
+                      
+                        actions={[
+                          <EditOutlined   key="edit" onClick={()=>editPreparacion(id,item.detalle, item.url_imagen)}/>,
+                          <DeleteOutlined key="delete" onClick={()=>deletePreparacion(item.detalle)}/>
+                        ]}
                       >
-                        {item.detalle}
+                        <div class="estil-1">{item.detalle}</div>
                       </Card>
-                      </div>
+                      
                     </Col>
-                    <Col span={1}></Col>
+                    
                   </>
                 ))
               }

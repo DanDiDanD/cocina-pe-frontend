@@ -19,6 +19,7 @@ import {
 } from "@ant-design/icons";
 import Modal from "../../components/Modal";
 import { listarPlatillos } from "../../api/platillo";
+import HomeCarousel from "../../components/HomeCarousel";
 import "./Home.scss";
 import "../Container.scss";
 import image from "../../assets/img/png/tus_mejores_recetas.png";
@@ -69,6 +70,9 @@ export default function Home() {
       content: contenido,
       okText: text,
       okType: "danger",
+      onOk() {
+        window.location.href = '/cocina/premium'
+      },
       cancelText: "Ahora no",
     });
   };
@@ -126,14 +130,14 @@ export default function Home() {
                           />
                         )
                       }
-                      actions={[<span>Ver recetas</span>]}
+                      actions={[<span className="boton-sugerencia-card">Ver recetas</span>]}
                       onClick={() => recetaCard(indice)}
                     >
                       <Meta
                         title={platillos[indice].nombre}
                         description={`${platillos[indice].descripcion.substring(
                           0,
-                          128
+                          155
                         )}...`}
                       />
                     </Card>
@@ -156,27 +160,33 @@ export default function Home() {
 
   return (
     <>
-      <div className="div-image">
+      {/* <div className="div-image">
         <Image src={image} className="site-page-image" preview={false} />
+      </div> */}
+      <div className="carousel-container">
+        <HomeCarousel />
       </div>
       <div className="main-container inicio-autenticado">
+        <div>
         <PageHeader title="¿Qué deseas comer hoy?" className="container-title">
-          <Divider style={{ marginTop: "0px" }} />
           <div className="container">{cardHTML}</div>
+          <br/>
           <Row justify="space-around">
             <Col span={10}>
               <Button shape="round"
                 className="button-reload"
                 key="1"
                 type="primary"
+                size="large"
                 icon={<HomeOutlined />}
                 onClick={recargarPlatillos}
               >
-                Recargar
+                Más sugerencias
               </Button>
             </Col>
           </Row>
         </PageHeader>
+        </div>
       </div>
     </>
   );
@@ -214,68 +224,4 @@ function randomSort(array) {
   }
 
   return array;
-}
-
-{
-  /* <Row >
-<Col lg={12}>
-  <Card className="card"
-    style={{ width: 400 }}
-    cover={
-      <img
-        alt="example"
-        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-      />
-    }
-    actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
-    ]}
-  >
-    <Meta
-      title="Card title"
-      description="This is the description"
-    />
-  </Card>
-</Col>
-<Col lg={12}>
-  hola
-</Col>
-<Col lg={1}/>
-<Col lg={22}>
-  <List
-    loading={isLoading}
-    itemLayout="horizontal"
-    // dataSource={platillos}
-    bordered={true}
-    pagination={{
-      onChange: (page) => {},
-      pageSize: 10,
-    }}
-    // renderItem={(item) => (
-    //   <List.Item
-    //     actions={[<Button shape="round" type="primary" onClick={() => editSede(item._id)}>Modificar</Button>]}
-    //   >
-    //     <List.Item.Meta
-    //       title={`${item.nombre ? item.nombre : ''}`}
-    //       description={`${item.direccion ? item.direccion : ''}`}
-    //     />
-    //   </List.Item>
-    // )}
-  />
-</Col> 
-<Col lg={1} />
-</Row> */
-}
-
-{
-  /* <Modal
-  title={modalTitle}
-  isVisible={isVisibleModal}
-  setIsVisible={setIsVisibleModal}
-  footer={false}
->
-  {modalContent}
-</Modal>*/
 }

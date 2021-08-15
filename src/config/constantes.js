@@ -11,6 +11,7 @@ export const RUTAS = {
   receta: "/cocina/recetas/:id",
   edit_receta: "/cocina/recetas/editar/:id",
   favorito: "/cocina/favoritos",
+  premium: "/cocina/premium"
 
 
 };

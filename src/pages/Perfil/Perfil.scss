@@ -1,6 +1,58 @@
 .list-users-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.lista-favoritos {
+  background-color: #e7d3af;
+  border-width: 30px;
+  border-radius: 25px;
+  width: 80%;
+  max-width:1000px;
+  margin: 10px auto;
+  padding: 25px 15px 20px 15px;
+}
+
+.lista-favoritos-meta { 
+  text-align: justify;
+  width: 95%;
+  margin: 1px auto;
+}
+
+.lista-favoritos-titulo{
+  padding-left: 20px;
+}
+
+.lista-favoritos-descripcion{
+  position: relative;
+  padding-left: 20px;
+  height: 130px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.lista-favoritos-autor {
+  padding: 30px 25px 0px 25px;
+  width: 100%;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  color: #ad4e00;
+}
+
+.boton-favoritos-ver-receta {
+  background-color: #e6c740;
+  justify-content: center;
+  margin-left: 16px;
+}
+
+.boton-favoritos-editar-receta {
+  background-color: #e6c740;
+  justify-content: center;
+}
+
+.boton-favoritos-eliminar-receta {
+  justify-content: center;
+}
