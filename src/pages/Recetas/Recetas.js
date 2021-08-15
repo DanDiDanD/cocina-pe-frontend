@@ -160,6 +160,10 @@ export default function Recetas() {
           content: comentario,
           likes: 0,
           dislikes: 0,
+          valoradores: {
+            positivos: [],
+            negativos: []
+          }
         },
         ...recetaEspecifica.comentarios,
       ];
@@ -195,11 +199,11 @@ export default function Recetas() {
   const commentsheader = (
     <div className="addComentSection">
       <Row>
-        <Col className="avatardiv" span={5}>
-          <Avatar size={64} icon={<UserOutlined />} />
-          <h5>{auth.data.nombres}</h5>
+        <Col className="avatardiv" span={4}>
+          <Avatar size={80} icon={<UserOutlined />} />
+          <h5 className="username">{auth.data.nombres}</h5>
         </Col>
-        <Col className="content" span={19}>
+        <Col className="content" span={20}>
           <Input.TextArea
             className="textArea"
             value={comentario}
@@ -325,7 +329,7 @@ export default function Recetas() {
     <>
       <div className="main-container">
         <Row>
-          <Col span={23}>
+          <Col span={24}>
             <List
               loading={isLoading}
               itemLayout="vertical"
@@ -395,13 +399,13 @@ export default function Recetas() {
         <Divider />
 
         <Row>
-          <Col span={6} offset={1}>
+          <Col span={12} offset={1}>
             <h2> Lista de ingredientes</h2>{" "}
           </Col>
         </Row>
 
         <Row>
-          <Col className="col1" span={14}>
+          <Col className="col1" span={12}>
             <Table
               className="tabIngred"
               size="middle"
@@ -414,7 +418,7 @@ export default function Recetas() {
               {...props}
             />
           </Col>
-          <Col className="col2" span={9}>
+          <Col className="col2" span={12}>
             <Image className="plato" preview={true} src={imagen} />
           </Col>
         </Row>
@@ -424,28 +428,30 @@ export default function Recetas() {
           <h2>Preparación</h2>
         </Row>
 
-        <Col className="fonCol" span={"auto"}>
+        <Col className="fonCol" span={"auto"}  >
           <div className="site-card-wrapper">
             <Row gutter={12}>
               {baseDataPreparacion.map((item, i = 0) => (
                 <>
-                  <Col className="receta-card" span={12}>
+                  <Col className="receta-card" 
+                    span={12}>
+                    
                     <Card
                       className="tarjeta"
                       hoverable
                       title={`Paso ${i + 1}`}
                       cover={
-                        <Row>
+                        <Row >
                           <br />
-
                           {item.url_imagen.length != 0 ? (
                             <Avatar
-                              size={300}
+                              size={600}
                               style={{
                                 margin: 15,
                                 width: "auto",
                                 minHeight: "600",
-                                borderRadius: 10,
+                                borderRadius: 20,
+                                aling: "center",
                               }}
                               src={item.url_imagen}
                               shape="square"
