@@ -15,7 +15,13 @@ import {
   Button,
 } from "antd";
 import { Link } from "react-router-dom";
-import { EyeOutlined } from "@ant-design/icons";
+import {
+  EyeOutlined,
+  LikeOutlined,
+  DislikeOutlined,
+  LikeTwoTone,
+  DislikeTwoTone,
+} from "@ant-design/icons";
 import { obtenerRecetaPorPlatillo } from "../../api/receta";
 import { authContext } from "../../providers/AuthContext"
 import { useParams } from "react-router-dom";
@@ -80,14 +86,14 @@ export default function PlatillosId() {
       };
     return { typeofAppreciation: "no valorados", indexofAppreciation: -1 };
   };
-/* 
+
 
   const editAppreciation = (recetaid, islike) => {
     setBaseData((preveState) => {
       const userid = auth.data._id
-      const [rece]
+      const [recetas] = preveState
     })
-  } */
+  }
 
 
   const search = (value) => {
@@ -184,6 +190,38 @@ export default function PlatillosId() {
                     <Col lg={24} className="lista-descripcion-receta">
                       {item.descripcion ? item.descripcion : ""}
                     </Col>
+                    <Row>
+                        <Button
+                          icon={
+                            typeAppreciation(item.valoradores)
+                              .typeofAppreciation == "positivos" ? (
+                              <LikeTwoTone />
+                            ) : (
+                              <LikeOutlined />
+                            )
+                          }
+                          className="buttonlike"
+                          onClick={() => editAppreciation(item._id, true)}
+                        >
+                          <h5 className="contador">{item.likes}</h5>
+                        </Button>
+                        <Button
+                          icon={<DislikeOutlined />}
+                          icon={
+                            typeAppreciation(item.valoradores)
+                              .typeofAppreciation == "negativos" ? (
+                              <DislikeTwoTone />
+                            ) : (
+                              <DislikeOutlined />
+                            )
+                          }
+                          className="buttonlike"
+                          /* ghost={ typeAppreciation(item.valoradores).typeofAppreciation == "negativos" } */
+                          onClick={() => editAppreciation(item._id, false)}
+                        >
+                          <h5 className="contador">{item.dislikes}</h5>
+                        </Button>
+                      </Row>
                   </List.Item>
                 )}
               />
