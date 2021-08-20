@@ -116,3 +116,16 @@ vertical-align: top;
 .alinear-objetos .ant-list-item-main{
 max-width: 69%;
  }
+
+ .buttonlike {
+  display: flex;
+  flex-direction: row;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  .contador{
+    margin: 0px 9px;
+  }
+}

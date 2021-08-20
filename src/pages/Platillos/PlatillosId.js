@@ -22,8 +22,8 @@ import {
   LikeTwoTone,
   DislikeTwoTone,
 } from "@ant-design/icons";
-import { obtenerRecetaPorPlatillo } from "../../api/receta";
-import { authContext } from "../../providers/AuthContext"
+import { obtenerRecetaPorPlatillo, modificarReceta } from "../../api/receta";
+import { authContext } from "../../providers/AuthContext";
 import { useParams } from "react-router-dom";
 import "./Platillos.scss";
 
@@ -38,11 +38,6 @@ export default function PlatillosId() {
     async function listarPlatillosApi() {
       let response = await obtenerRecetaPorPlatillo(id);
       if (response && response.length != 0) {
-        console.log(response);
-        console.log(
-          "🚀 ~ file: PlatillosId.js ~ line 35 ~ listarPlatillosApi ~ response",
-          response
-        );
         let newArr = response.data.map(function (item) {
           return {
             _id: item._id,
@@ -87,14 +82,72 @@ export default function PlatillosId() {
     return { typeofAppreciation: "no valorados", indexofAppreciation: -1 };
   };
 
-
   const editAppreciation = (recetaid, islike) => {
-    setBaseData((preveState) => {
-      const userid = auth.data._id
-      const [recetas] = preveState
-    })
-  }
+    const setBaseOrFilterState = (prevState) => {
+      const userid = auth.data._id;
+      const recetas = prevState;
+      const index = recetas.findIndex((element) => element._id == recetaid);
 
+      if (index !== -1) {
+        const { typeofAppreciation, indexofAppreciation } = typeAppreciation(
+          recetas[index].valoradores
+        );
+
+        // funciones de actualizacion
+        const valoracionUpdates = {
+          removeOff(type) {
+            recetas[index].valoradores[type].splice(indexofAppreciation, 1);
+          },
+          addTo(type) {
+            recetas[index].valoradores[type] = [
+              ...recetas[index].valoradores[type],
+              userid,
+            ];
+          },
+        };
+
+        if (typeofAppreciation == "positivos") {
+          if (islike) {
+            recetas[index].likes--;
+            valoracionUpdates.removeOff("positivos");
+          } else {
+            recetas[index].likes--;
+            valoracionUpdates.removeOff("positivos");
+            recetas[index].dislikes++;
+            valoracionUpdates.addTo("negativos");
+          }
+        } else if (typeofAppreciation == "negativos") {
+          if (islike) {
+            recetas[index].likes++;
+            valoracionUpdates.addTo("positivos");
+            recetas[index].dislikes--;
+            valoracionUpdates.removeOff("negativos");
+          } else {
+            recetas[index].dislikes--;
+            valoracionUpdates.removeOff("negativos");
+          }
+        } else {
+          if (islike) {
+            recetas[index].likes++;
+            valoracionUpdates.addTo("positivos");
+          } else {
+            recetas[index].dislikes++;
+            valoracionUpdates.addTo("negativos");
+          }
+        }
+
+        modificarReceta(recetas[index]._id, recetas[index])
+          .then((response) => {
+            console.log("Actualizado");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      return [...recetas];
+    };
+    setBaseData(setBaseOrFilterState);
+  };
 
   const search = (value) => {
     if (value !== "") {
@@ -191,37 +244,37 @@ export default function PlatillosId() {
                       {item.descripcion ? item.descripcion : ""}
                     </Col>
                     <Row>
-                        <Button
-                          icon={
-                            typeAppreciation(item.valoradores)
-                              .typeofAppreciation == "positivos" ? (
-                              <LikeTwoTone />
-                            ) : (
-                              <LikeOutlined />
-                            )
-                          }
-                          className="buttonlike"
-                          onClick={() => editAppreciation(item._id, true)}
-                        >
-                          <h5 className="contador">{item.likes}</h5>
-                        </Button>
-                        <Button
-                          icon={<DislikeOutlined />}
-                          icon={
-                            typeAppreciation(item.valoradores)
-                              .typeofAppreciation == "negativos" ? (
-                              <DislikeTwoTone />
-                            ) : (
-                              <DislikeOutlined />
-                            )
-                          }
-                          className="buttonlike"
-                          /* ghost={ typeAppreciation(item.valoradores).typeofAppreciation == "negativos" } */
-                          onClick={() => editAppreciation(item._id, false)}
-                        >
-                          <h5 className="contador">{item.dislikes}</h5>
-                        </Button>
-                      </Row>
+                      <Button
+                        icon={
+                          typeAppreciation(item.valoradores)
+                            .typeofAppreciation == "positivos" ? (
+                            <LikeTwoTone />
+                          ) : (
+                            <LikeOutlined />
+                          )
+                        }
+                        className="buttonlike"
+                        onClick={() => editAppreciation(item._id, true)}
+                      >
+                        <h5 className="contador">{item.likes}</h5>
+                      </Button>
+                      <Button
+                        icon={<DislikeOutlined />}
+                        icon={
+                          typeAppreciation(item.valoradores)
+                            .typeofAppreciation == "negativos" ? (
+                            <DislikeTwoTone />
+                          ) : (
+                            <DislikeOutlined />
+                          )
+                        }
+                        className="buttonlike"
+                        /* ghost={ typeAppreciation(item.valoradores).typeofAppreciation == "negativos" } */
+                        onClick={() => editAppreciation(item._id, false)}
+                      >
+                        <h5 className="contador">{item.dislikes}</h5>
+                      </Button>
+                    </Row>
                   </List.Item>
                 )}
               />
