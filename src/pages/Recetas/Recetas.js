@@ -258,9 +258,6 @@ export default function Recetas() {
         const {typeofAppreciation, indexofAppreciation} = typeAppreciation(
           recetaEspecifica.comentarios[index].valoradores
         );
-
-        console.log("🚀 ~ file: Recetas.js ~ line 255 ~ setBaseDataReceta ~ indexofAppreciation", indexofAppreciation)
-
         
         // funciones de actualizacion
         const valoracionUpdates = {
@@ -269,8 +266,6 @@ export default function Recetas() {
               indexofAppreciation,
               1
             );
-              
-              console.log("🚀 ~ file: Recetas.js ~ line 261 ~ removeOff ~ recetaEspecifica.comentarios[index].valoradores[type]", recetaEspecifica.comentarios[index].valoradores[type])
           },
           addTo(type) {
             recetaEspecifica.comentarios[index].valoradores[type] = [
