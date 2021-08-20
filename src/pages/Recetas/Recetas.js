@@ -160,6 +160,10 @@ export default function Recetas() {
           content: comentario,
           likes: 0,
           dislikes: 0,
+          valoradores: {
+            positivos: [],
+            negativos: []
+          }
         },
         ...recetaEspecifica.comentarios,
       ];
@@ -195,11 +199,11 @@ export default function Recetas() {
   const commentsheader = (
     <div className="addComentSection">
       <Row>
-        <Col className="avatardiv" span={5}>
-          <Avatar size={64} icon={<UserOutlined />} />
-          <h5>{auth.data.nombres}</h5>
+        <Col className="avatardiv" span={4}>
+          <Avatar size={80} icon={<UserOutlined />} />
+          <h5 className="username">{auth.data.nombres}</h5>
         </Col>
-        <Col className="content" span={19}>
+        <Col className="content" span={20}>
           <Input.TextArea
             className="textArea"
             value={comentario}
