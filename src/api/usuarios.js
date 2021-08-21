@@ -31,6 +31,33 @@ export const listaUsuarios = async () => {
     }
 }
 
+export const usuarioPremium = async (id,params) => {
+    try {
+        const respuesta = await clienteAxios.put(`/usuarios/premium/${id}`, params, HEADERS);
+        return respuesta.data;
+    } catch (error) {
+        return error.response.data;
+    }
+}
+
+export const quitarUsuarioPremium = async (id) => {
+    try {
+        const respuesta = await clienteAxios.get(`/usuarios/premium/quitar/${id}`, HEADERS);
+        return respuesta.data;
+    } catch (error) {
+        return error.response.data;
+    }
+}
+
+export const usuarioPremiumInfo = async (id) => {
+    try {
+        const respuesta = await clienteAxios.get(`/usuarios/premium/info/${id}`, HEADERS);
+        return respuesta.data;
+    } catch (error) {
+        return error.response.data;
+    }
+}
+
 export const listaUsuariosPremium = async () => {
     try {
         const respuesta = await clienteAxios.get('/usuarios/premium', HEADERS);
