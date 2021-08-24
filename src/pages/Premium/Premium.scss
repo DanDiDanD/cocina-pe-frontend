@@ -1,0 +1,198 @@
+.premium-css{
+    background-image: url("../../assets/img/png/fondo2.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: calc(100vh - 111px);
+
+    &_container{
+        margin: 0px 120px 0px 120px;
+        background: linear-gradient(
+            to bottom right,
+            rgba(255,255,255,0.35),
+            rgba(255,255,255,0.15)
+        );
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.5),
+        -0.5px -0.5px 1px #aaa,
+        0.5px 0.5px 1px #555;
+        backdrop-filter: blur(0.8rem);
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+
+    &_input{
+      border-radius: 10px;
+      background: linear-gradient(
+          to bottom right,
+          rgba(255,255,255,1),
+          rgba(255,255,255,0.8)
+      );
+      // box-shadow: 0 1rem 2rem rgba(0,0,0,0.5),
+      // -0.5px -0.5px 1px #aaa,
+      // 0.5px 0.5px 1px #555;
+      // backdrop-filter: blur(0.8rem);
+      // padding: 1.5rem;
+      // border-radius: 1rem;
+    }
+}
+
+
+.rccs {
+    // margin: 0px 0px 20px 0px;
+    margin: auto;
+    width: 360px;
+    // width: 95%;
+    height: 235px;
+    // height: 95.5%;
+  
+    &__card{
+      width: 360px;
+      // width: 95%;
+      height: 235px;
+      // height: 95.5%;
+    }
+  
+    &__issuer{
+      // background-size: 40%;
+      width: 50%;
+      height: 30%;
+    }
+    &__name{
+      font-size: 20px;
+      // font-size: 150%;
+    }
+    &__number{
+      font-size: 28px
+      // font-size: 220%
+    }
+    &__cvc{
+      font-size: 18px
+    }
+    &__expiry{
+  
+      &__valid{
+        font-size: 14px;
+      }
+      &__value{
+        font-size: 20px;
+      }
+  
+    }
+    &__chip{
+      width: 30%;
+      height: 18%;
+    }
+  }
+  
+  @media only screen and (max-width: 1700px) {
+    .rccs {
+        margin: 0px 0px 0px 0px;
+      width: 290px;
+      height: 182px;
+
+        &__number{
+          font-size: 22px
+          // font-size: 220%
+        }
+
+      }
+  
+
+      .rccs__card {    
+          width: 290px;
+          height: 168px;
+      }
+  }
+
+.container-title{
+    text-align: center;
+  }
+
+  .site-page-button-premium {
+    display: flex;
+    justify-content: center;
+}
+
+.container-footer{
+  // display: flex;
+  text-align: center;
+}
+
+.boton-premium{
+  font-size: 25px !important;
+  padding: 5px 30px 45px 30px !important;
+  
+}
+
+.premium-card{
+  margin: 0px 13.047px 0px 13.047px;
+  
+  &_precios{
+    margin: 0px 13.047px 0px 13.047px;
+    border-radius: 10px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.7)
+    );
+
+    &_content{
+      display: flex;
+      flex-direction: column ;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+}
+
+h1.ant-typography.text-precios_title{
+  font-weight: 200 !important;
+  margin-bottom: 13px;
+}
+h2.ant-typography.text-precios_title{
+  font-weight: 200 !important;
+}
+h3.ant-typography.text-precios_title{
+  font-weight: 200 !important;
+}
+
+span.ant-typography.text-precios_contenido{
+  font-size: 14px;
+  text-align: center;
+
+  &_footer{
+    font-size: 18px;
+  }
+
+  &_tiempo{
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &_soles{
+    font-size: 36px;
+    text-align: center;
+  }
+}
+
+h3.ant-typography.text-precios_title{
+  margin-top: 0em !important;
+}
+
+.ant-typography kbd{
+  border-botton-width: 1px !important;
+}
+
+span.ant-typography.text-precios_contenido_dolares{
+  border-botton-width: 1px !important;
+}
+
+span.ant-typography.text-precios_contenido_dolares > kbd{
+  border-botton-width: 1px !important;
+}
+
+.ant-typography > kbd{
+  border-botton-width: 1px !important;
+}
