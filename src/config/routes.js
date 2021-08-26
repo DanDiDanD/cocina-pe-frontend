@@ -1,6 +1,7 @@
 import MainLayout from "../layouts/MainLayout";
 import BasicLayout from "../layouts/BasicLayout";
 import Login from "../pages/Login";
+import RecoveryPassword from "../pages/RecuperarContraseña";
 import Home from "../pages/Home";
 import Platillos from "../pages/Platillos";
 import PlatillosId from "../pages/Platillos/PlatillosId";
@@ -88,6 +89,11 @@ const routes = [
         path: RUTAS.registro,
         component: Login,
         exact: true,
+      },
+      {
+        path: RUTAS.recoveryPassword,
+        component: RecoveryPassword,
+        exact: true
       },
       {
         component: Error404,
