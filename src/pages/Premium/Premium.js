@@ -12,12 +12,16 @@ import {
   Space,
   Divider,
   Radio,
+  notification,
   Modal as ModalAs,
 } from "antd";
 import Cards from 'react-credit-cards';
 
 import Modal from "../../components/Modal";
 
+import { authContext } from "../../providers/AuthContext";
+
+import {usuarioPremium} from '../../api/usuarios'
 
 import "./Premium.scss";
 import "../Container.scss";
@@ -27,6 +31,15 @@ const { confirm } = ModalAs;
 const {Text, Title} = Typography
 
 export default function Premium() {
+    const { setAuthData, auth } = useContext(authContext);
+
+    const changeData = () => {
+        const authData = JSON.parse(localStorage.getItem('authData'))
+        authData.is_premium = true;
+        setAuthData(authData);
+        
+    };
+
     const [cvc, setCvc] = useState('');
     const [expiry, setExpiry] = useState('');
     const [focus, setFocus] = useState('');
@@ -51,8 +64,31 @@ export default function Premium() {
         }
     }
 
-    const onFinish = (value) => {
+    const onFinish = async (value) => {
         console.log(value)
+        const id = JSON.parse(localStorage.getItem('authData'))._id
+        const response = await usuarioPremium(id, value);
+
+        if (response.code === 200) {
+            notification["success"]({
+              message: "Éxito",
+              description: response.message,
+            });
+            changeData();
+            window.location.href ='/cocina'
+      
+          } else if (response.code === 400) {
+            notification["error"]({
+              message: "Error",
+              description: response.message,
+            });
+          } else {
+            notification["warning"]({
+              message: "Error",
+              description: response.message,
+            });
+          }
+        console.log(response)
     }
 
     return (
@@ -126,7 +162,7 @@ export default function Premium() {
                     <Form name="basic" onFinish={onFinish}>
                         <Form.Item
                             name="number"
-                            rules={[{ required: true, message: 'Rellenar el campo!' },{ pattern: "[0-9]", message: 'Solo puede incluir números' }]}
+                            rules={[{ required: true, message: 'Rellenar el campo!' },{ message: 'Solo puede incluir números' }]}
                         >
                             <Input
                             size="large"
@@ -160,13 +196,14 @@ export default function Premium() {
 
                         <Form.Item
                             name="expiry"
-                            rules={[{ required: true, message: 'Rellenar el campo!' }]}
+                            rules={[{ required: true, message: 'Rellenar el campo!' },{ message: 'Solo puede incluir números' }]}
                         >
                             <Input
                             size="large"
                             className='premium-css_input'
                             type="number"
                             name="expiry"
+                            maxlength="4"
                             placeholder="Expiración"
                             onChange={handleInputChange}
                             onFocus={handleInputFocus}
@@ -175,12 +212,12 @@ export default function Premium() {
 
                         <Form.Item
                             name="cvc"
-                            rules={[{ required: true, message: 'Rellenar el campo!' }]}
+                            rules={[{ required: true, message: 'Rellenar el campo!' },{ message: 'Solo puede incluir números' }]}
                         >
                             <Input
                             size="large"
                             className='premium-css_input'
-                            type="nomber"
+                            type="number"
                             name="cvc"
                             placeholder="CVC"
                             onChange={handleInputChange}
