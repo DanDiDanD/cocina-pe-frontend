@@ -22,7 +22,7 @@ export default function MenuTop() {
         <>
             <Image src={logo} className="menu-top__img-logo"/>
 
-            <Menu theme="dark" mode="horizontal" style={{color: "red"}, {backgroundColor: "#dd621b"}}>
+            <Menu className="menu-top__menu-todo" theme="dark" mode="horizontal" style={{color: "red"}, {backgroundColor: "#dd621b"}}>
                 <Menu.Item className="menu-top__menu-item" key={RUTAS.home}>
                     <Link to={RUTAS.home}>Inicio</Link>
                 </Menu.Item>

@@ -9,15 +9,17 @@ import plato3 from '../../assets/img/png/plato3.jpg';
 export default () => (
   <Carousel autoPlay
     className="carousel-home"
-    //dynamicHeight={false}
+    //dynamicHeight={true}
     infiniteLoop={true}
     interval={6000}
     showThumbs={false}
     
     >
-      <Image src={plato1} className="carousel-img"/>
-      <Image src={plato2} className="carousel-img"/>
+      
       <Image src={plato3} className="carousel-img"/>
-    
+      <Image src={plato2} className="carousel-img"/>
+      <Image src={plato1} className="carousel-img"/>
+      
+          
   </Carousel>
 );
