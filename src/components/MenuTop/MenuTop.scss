@@ -7,17 +7,19 @@
        }
 
 
-      background: rgba(221, 98, 27, 1);
+      background: rgb(233, 124, 61);
       
       &__menu-item:hover{
         background-color: red;
       }
 
-
+        //botones inicio sin iniciar sesión
       &__menu-item{
-        background-color: rgba(221, 98, 27, 1);
+        background-color: rgb(233, 124, 61);
         font-size: large;
       }
 }
+
+
 
 
