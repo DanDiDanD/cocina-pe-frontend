@@ -110,11 +110,11 @@ export default function Login({ history }) {
                  <Text className="text-class">¿No tienes cuenta aún?</Text><a className="text-class" onClick={() => registrarse()}>¡Registrate ahora!</a>
                   </Space>
             </div>
-            <div className="site-page-button">
+            {/* <div className="site-page-button">
               <Space size="small">
                  <Text className="text-class">¿No recuerdas tu contraseña?</Text><a className="text-class" onClick={() => window.location.href = "/recoveryPassword"}>Cambiar contraseña</a>
               </Space>
-            </div>
+            </div> */}
             
             <br /><br /><br /><br /><br />
           </Form>
