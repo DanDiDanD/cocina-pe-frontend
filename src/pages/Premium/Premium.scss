@@ -1,3 +1,7 @@
+.container-premium{
+  padding: 22px 20px 0px 20px;
+}
+
 .premium-css{
     background-image: url("../../assets/img/png/fondo2.jpg");
     background-repeat: no-repeat;
@@ -119,7 +123,7 @@
 }
 
 .boton-premium{
-  font-size: 25px !important;
+  font-size: 20px !important;
   padding: 5px 30px 45px 30px !important;
   
 }
@@ -146,6 +150,15 @@
 
 }
 
+.premium_precios_row{
+  margin: 0px 20px 0px 20px;
+}
+
+.premium_divider{
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 h1.ant-typography.text-precios_title{
   font-weight: 200 !important;
   margin-bottom: 13px;
@@ -158,7 +171,7 @@ h3.ant-typography.text-precios_title{
 }
 
 span.ant-typography.text-precios_contenido{
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
 
   &_footer{
@@ -166,7 +179,7 @@ span.ant-typography.text-precios_contenido{
   }
 
   &_tiempo{
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     font-weight: bold;
   }
@@ -195,4 +208,8 @@ span.ant-typography.text-precios_contenido_dolares > kbd{
 
 .ant-typography > kbd{
   border-botton-width: 1px !important;
+}
+
+.premium-bottom-space{
+  padding-bottom: 3px;
 }

@@ -4,7 +4,7 @@ import './Modal.scss'
 
 export default function Modal(props) {
   // console.log(props)
-  const { children, title, isVisible, setIsVisible, footer,...other } = props;
+  const { children, title, isVisible, setIsVisible, footer ,...other } = props;
   return (
     <ModalAntd
       className='modal-cocina-pe'
@@ -15,7 +15,7 @@ export default function Modal(props) {
       footer={footer}
       // maskClosable={false}
       destroyOnClose={true}
-      width={600}
+      width={800}
       {...other}
     >
       {children}
