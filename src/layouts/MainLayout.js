@@ -58,7 +58,7 @@ export default function MainLayout(props) {
               </Content>
 
               <Footer className="layout-basic__footer">
-                Politicas de privacidad - Grupo AAAAAAA<br/>
+                Politicas de privacidad - Grupo AwsfsdfsdAAA<br/>
               </Footer>
           </Layout>
       </Layout>

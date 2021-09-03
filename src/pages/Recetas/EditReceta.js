@@ -320,14 +320,14 @@ export default function EditRecetas() {
       <Divider/>
 
       <Row>
-        <Col span={6} offset={1}><h2>Lista de ingredientes</h2> </Col>
+        <Col span={6} ><h2>Lista de ingredientes</h2> </Col>
         <Col  offset={2}><Button shape="round" type='primary' onClick={()=>addIngrediente(id)} >Agregar ingrediente</Button></Col>
       </Row>
       
       
 
       <Row>
-        <Col className="col1" span={14}>
+        <Col className="col1" span={12}>
 
           <Table
               className="tabIngred"
@@ -340,15 +340,15 @@ export default function EditRecetas() {
               pagination={false}
             />
         </Col>
-        <Col className="col2"  span={9}>
+        <Col className="col2"  span={12}>
           <Image className="plato" preview={true} src={imagen}/>
         </Col>
       </Row>
       <Divider />
 
       <Row>
-        <Col span={6} offset={1}><h2> Preparación</h2> </Col>
-        <Col offset={6}><Button shape="round" type='primary' onClick={()=>addPreparacion(id)} >Agregar paso</Button></Col>
+        <Col span={12}><h2> Preparación</h2> </Col>
+        <Col span={12}><Button shape="round" type='primary' onClick={()=>addPreparacion(id)} >Agregar paso</Button></Col>
       </Row>
       
       <Row>
@@ -368,7 +368,7 @@ export default function EditRecetas() {
                             <br />
                             {item.url_imagen.length != 0 ? (
                               <Avatar
-                                size={300}
+                                size={600}
                                 style={{
                                   margin: 15,
                                   width: "auto",

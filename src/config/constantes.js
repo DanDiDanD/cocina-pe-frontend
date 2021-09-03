@@ -2,7 +2,7 @@ export const RUTAS = {
   home: "/",
   registro: "/registro",
   login: "/login",
-
+  recoveryPassword: "/recoveryPassword",
   cocina: "/cocina",
   usuario: "/cocina/usuarios",
   perfil: "/cocina/usuarios/:id",

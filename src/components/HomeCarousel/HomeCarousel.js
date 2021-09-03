@@ -1,23 +1,25 @@
 import React from "react";
+import { Image, Modal as ModalAs } from 'antd';
 import { Carousel } from "react-responsive-carousel";
 import './HomeCarousel.scss'
+import plato1 from '../../assets/img/png/plato1.jpg';
+import plato2 from '../../assets/img/png/plato2.jpg';
+import plato3 from '../../assets/img/png/plato3.jpg';
 
 export default () => (
   <Carousel autoPlay
     className="carousel-home"
-    // dynamicHeight={true}
+    //dynamicHeight={true}
     infiniteLoop={true}
     interval={6000}
     showThumbs={false}
+    
     >
-    <div>
-      <img className="carousel-img" src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB15poFh.img?h=1080&w=1920&m=6&q=60&o=t&l=f" />
-    </div>
-    <div>
-      <img className="carousel-img" src="http://www.cedna.org/es/wp-content/uploads/2018/07/cocina-peruana-cabecera.jpg" />
-    </div>
-    <div>
-      <img className="carousel-img" src="https://www.revistalabarra.com/wp-content/uploads/2019/11/comida-peruana-1500x800.jpg" />
-    </div>
+      
+      <Image src={plato3} className="carousel-img"/>
+      <Image src={plato2} className="carousel-img"/>
+      <Image src={plato1} className="carousel-img"/>
+      
+          
   </Carousel>
 );
