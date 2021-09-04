@@ -1,4 +1,5 @@
 // Cambios
+
 .list-users-header {
   display: flex;
   align-items: center;
@@ -11,7 +12,13 @@
   font-size: 30px;
   line-height: 24px;
 }
-
+.ant-layout-content {
+  // background-image: url("../../assets/img/png/fondofrutas.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  
+}
 /* Scroll para pasos de recetas */
 .estil-1 {
   height: 130px;
@@ -74,7 +81,7 @@
 
 .tarjeta {
   overflow: hidden;
-  max-width: 1200px;
+  max-width: 1100px;
   background-color: #e7e0dbe7;
 }
 .plato {
@@ -91,18 +98,28 @@
   margin: 10px auto;
 }
 
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 1100px) {
   .fonCol {
-    min-width: 500px;
+    min-width: 600px;
+    
   }
   .estil-2 {
     font-size: 20px;
   }
+  
+
+  
 }
+
+
 @media screen and (max-width: 1400px) {
   .receta-card {
     margin: 15px auto;
-    min-width: 450px;
+    min-width: 500px;
+  }
+  .fonCol {
+    width: 600px;
+    
   }
   .estil-1 {
     font-size: 21spx;
@@ -124,6 +141,7 @@
     border: 3px solid rgb(212, 212, 212);
     border-radius: 10px;
   }
+  
 }
 @media screen and (min-width: 1700px) {
   .estil-1 {
