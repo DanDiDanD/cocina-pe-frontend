@@ -11,7 +11,7 @@
 
 .carousel.carousel-slider {
     // height: auto;
-    // width: 100%;
+    width: 100%;
     height: 76vh;
     // height: 76vh;
     // width: 99vw;
@@ -19,12 +19,19 @@
 }
 
 .carousel-img{
-    height: 76vh !important;
-    // width: 100vw !important;
-
+    // height: 76vh !important;
+    // width: 100% !important;
+    width: 100%;
+    // height: auto;
+    height: 76vh;
     // width: 100%;
     // height: auto !important;
     // height: 50% ;
+}
+
+div.ant-image.carousel-img > img{
+    width: 100%;
+    height: 76vh;
 }
 
 .carousel-div-img {
