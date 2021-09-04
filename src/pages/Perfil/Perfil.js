@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import {  Row,  Col,  Button,  PageHeader, Space,  Tabs,  Image,  Avatar,  Input,  notification,  Modal as ModalAntd, List, Card, Form} from "antd";
+import {  Row,  Col,  Button,  PageHeader, Space,  Tabs,  Image,  Avatar,  Input,  notification,  Modal as ModalAntd, List, Card, Form,Popover } from "antd";
 import { Link, Redirect } from "react-router-dom";
-import { HomeOutlined, EditOutlined, EyeOutlined, DeleteOutlined } from "@ant-design/icons";
+import { HomeOutlined, EditOutlined, EyeOutlined, DeleteOutlined,StarFilled } from "@ant-design/icons";
 import Modal from "../../components/Modal";
 import { useParams } from 'react-router-dom'
 import "./Perfil.scss";
@@ -303,6 +303,13 @@ export default function Perfil() {
   }, [id]);
   // --------------------------------------------------------------------------------------
 
+  const mensaje = (
+    
+    <span> usuario premium
+    </span>
+  );
+
+
   return (
     <>
       <div className="master-container">
@@ -315,46 +322,42 @@ export default function Perfil() {
                       <div className = "pic">
                         {
                           usuario.url_avatar === "" 
-                          ? <Avatar size={250} src="https://img.icons8.com/dusk/64/000000/cat-profile.png"/>      
-                          : <Avatar shape="square" size={250} src={usuario.url_avatar} />
+                          ? <Avatar size={150} src="https://img.icons8.com/dusk/64/000000/cat-profile.png"/>      
+                          : <Avatar shape="square" size={150} src={usuario.url_avatar} />
                         }
                       </div>
-                      <div className = "information">
-                        <h2>{usuario.nombres} {usuario.apellido_paterno}</h2>
-                        <br></br>
-                        {
+                      <div className = "information">                      
+                      <h3><b>{usuario.nombres} {usuario.apellido_paterno}</b>
+                          <Popover content={mensaje} placement="topLeft" >
+                          {
                           usuario.is_premium === true
-                          ? <h2>Tipo de Usuario: Premium</h2>
-                          : <h2>Tipo de Usuario: Estandar</h2>
+                          ? <StarFilled  style={{ color: '#ffff00', marginLeft:'5px'  }} />
+                          : <span></span>
                         }
-                        <h2>Correo: {usuario.correo}</h2>
+                      </Popover></h3>
+                     <h4>{usuario.correo}</h4> 
                         {
                           usuario.sexo === "Mujer"
-                          ? <h2>Sexo: {usuario.sexo} <img src="https://img.icons8.com/office/16/000000/female.png" alt="Img not found"/></h2>
+                          ? <span className="margin-bottom">{usuario.sexo} <img src="https://img.icons8.com/office/16/000000/female.png" alt="Img not found"/>  <br></br></span>
                           : 
                           usuario.sexo === "Hombre"
-                          ? <h2>Sexo: {usuario.sexo} <img src="https://img.icons8.com/office/16/000000/male-stroke.png" alt="Img not found" /></h2>
-                          : <h2>Sexo: No Especificado </h2>
+                          ? <span className="margin-bottom">{usuario.sexo} <img src="https://img.icons8.com/office/16/000000/male-stroke.png" alt="Img not found" />  <br></br></span>
+                          : <span></span>
                         }
+                      
                         {
                           usuario.pais === ""
-                          ? <h2>Pais: No Especificado</h2>
-                          : <h2>Pais: {usuario.pais}</h2>
+                          ? <br/>
+                          : <p>{usuario.pais}</p>
                         }
+                          <br></br>
                       </div>
-                      <div className="extra">
-                        {
-                          usuario.is_premium === true
-                          ? <Avatar size={250} src="https://acegif.com/wp-content/gifs/coin-flip-43.gif"/>
-                          : <Avatar shape="square" size={250} src="https://i.pinimg.com/originals/f4/38/f3/f438f3600d2690018f981c66e7935b49.png"/>
-                        }
-                      </div>
+                    
                       <Button
                         shape="round"
                         type="dashed"
-                        icon={<EyeOutlined />}
                         href={'/cocina/premium'}
-                      >Premium
+                      >Planes
                       </Button>
                     </div>
             </TabPane>
@@ -496,8 +499,7 @@ export default function Perfil() {
                             shape="round"
                             type="dashed"
                             icon={<EyeOutlined />}
-                            href={`/cocina/recetas/${item._id}`}
-                          >
+                            href={`/cocina/recetas/${item._id}`}>
                             Ver
                           </Button>,
                           <Button
