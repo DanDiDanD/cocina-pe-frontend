@@ -83,6 +83,7 @@ export default function EditIngredienteModal(props) {
       preparacion: nuevaPreparacion
     }
     const response = await modificarReceta(id_receta,obj);
+    localStorage.setItem('url_imagen_base64', '')
     
     if (response.code === 200) {
         notification["success"]({

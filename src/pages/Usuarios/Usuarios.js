@@ -149,7 +149,7 @@ export default function Usuario() {
             bordered={false}
             pagination={{
               onChange: (page) => { },
-              pageSize: 4,
+              pageSize: 10,
               responsive: true,
               onShowSizeChange: (current, pageSize) =>
                 (this.pageSize = pageSize),
