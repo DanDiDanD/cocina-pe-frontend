@@ -48,8 +48,8 @@ export default function Premium(){
 
     const estandar = {
         titulo: 'Estándar',
-        descripcion1: 'Adquiere tu suscripción a la comunidad de Cocina Pe durante',
-        tiempo: 'un(1) mes',
+        descripcion1: 'Adquiere tu suscripción a la comunidad de Cocina Pe por',
+        tiempo: '1 mes',
         descripcion2: '.',
         precioSol: 'S/11.96*',
         precioDolar: '$2.99'
@@ -58,8 +58,8 @@ export default function Premium(){
     const yapa = {
         titulo: 'Yapa',
         descripcion1: 'Adquiere tu suscripción Yapa por',
-        tiempo: 'tres(3) meses',
-        descripcion2: 'y ahorra un 11% del costo total.',
+        tiempo: '3 meses',
+        descripcion2: 'y paga solo el 40% el tercer mes.',
         precioSol: 'S/23.97*',
         precioDolar: '$7.99'
     }
@@ -67,8 +67,8 @@ export default function Premium(){
     const superYapa = {
         titulo: 'Super Yapa',
         descripcion1: 'Adquiere tu suscripción Super Yapa por',
-        tiempo: 'seis(6) meses',
-        descripcion2: 'y ahorra un 20% del costo total.',
+        tiempo: '6 meses',
+        descripcion2: 'y paga solo por 5 meses',
         precioSol: 'S/59.96*',
         precioDolar: '$14.99'
     }
@@ -76,10 +76,10 @@ export default function Premium(){
     const premium = {
         titulo: 'Premium',
         descripcion1: 'Adquiere tu suscripción Premium por',
-        tiempo: 'doce(12) meses',
-        descripcion2: 'y ahorra un 30% del costo total',
-        precioSol: 'S/99.95*',
-        precioDolar: '$24.99'
+        tiempo: '12 meses',
+        descripcion2: 'y paga solo por 8 meses',
+        precioSol: 'S/95.96*',
+        precioDolar: '$23.99'
     }
 
     const onButton1 = async () => await modalPago({option:'1',price: 299, description: 'Suscripción Estándar', data:estandar })
@@ -143,7 +143,7 @@ export default function Premium(){
             <div className="premium-card_precios_content">
                 <br/>
             <Text className="text-precios_contenido_footer">Pasa a convertirte en miembro de la comunidad de Cocina Pe y ten acceso a los más de 10 mil platos que tenemos para ti.</Text>
-            <Text className="text-precios_contenido_footer">Consigue 2 meses gratis si compras 1 año de Premium</Text>
+            <Text className="text-precios_contenido_footer">Consigue 4 meses gratis si compras el plan Premium</Text>
             </div>
             <br/>
             <Divider className="premium_divider"/>
@@ -154,9 +154,7 @@ export default function Premium(){
                         <div className="premium-card_precios_content">
                             <Title level={3} className="text-precios_title">{estandar.titulo}</Title>
                             <Text className="text-precios_contenido">{estandar.descripcion1} <Text className="text-precios_contenido_tiempo">{estandar.tiempo}</Text>{estandar.descripcion2}</Text>
-                            <br/><br/>
-                            <br/>
-                            <br/>
+                    
                             <div className="premium-bottom-space"></div>
                             <Text className="text-precios_contenido_soles">{estandar.precioSol}</Text>
                             <Text>PEN</Text>
@@ -171,9 +169,7 @@ export default function Premium(){
                         <div className="premium-card_precios_content">
                             <Title level={3} className="text-precios_title">{yapa.titulo}</Title>
                             <Text className="text-precios_contenido">{yapa.descripcion1} <Text className="text-precios_contenido_tiempo">{yapa.tiempo} </Text>{yapa.descripcion2}</Text>
-                            <br/><br/>
-                            <br/>
-                            <br/>
+                      
                             <div className="premium-bottom-space"></div>
                             <Text className="text-precios_contenido_soles">{yapa.precioSol}</Text>
                             <Text>PEN</Text>
@@ -188,8 +184,7 @@ export default function Premium(){
                         <div className="premium-card_precios_content">
                             <Title level={3} className="text-precios_title">{superYapa.titulo}</Title>
                             <Text className="text-precios_contenido">{superYapa.descripcion1} <Text className="text-precios_contenido_tiempo">{superYapa.tiempo} </Text>{superYapa.descripcion2}</Text>
-                            <br/><br/>
-                            <br/>
+                          
                             <Text className="text-precios_contenido_soles">{superYapa.precioSol}</Text>
                             <Text>PEN</Text>
                             <Text keyboard className="text-precios_contenido_dolares">{superYapa.precioDolar}</Text>
@@ -203,9 +198,7 @@ export default function Premium(){
                         <div className="premium-card_precios_content">
                             <Title level={3} className="text-precios_title">{premium.titulo} </Title>
                             <Text className="text-precios_contenido">{premium.descripcion1} <Text className="text-precios_contenido_tiempo">{premium.tiempo} </Text>{premium.descripcion2} </Text>
-                            <br/><br/>
-                            <br/>
-                            <Text className="text-precios_contenido_soles">{premium.precioSol} </Text>
+                                                     <Text className="text-precios_contenido_soles">{premium.precioSol} </Text>
                             <Text>PEN</Text>
                             <Text keyboard className="text-precios_contenido_dolares">{premium.precioDolar} </Text>
                             <br/>
