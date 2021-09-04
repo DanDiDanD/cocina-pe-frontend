@@ -61,27 +61,39 @@
 .boton-favoritos-eliminar-receta {
   justify-content: center;
 }
-
+.margin-botom{
+  margin-bottom: 0.5rem;
+}
 .containerPerfil{
-  display: flex;
+ /* display: inline-block;*/
   justify-content: center;
   align-items: center;
   background: #e7d3afec;
   border-radius: 20px;
-  margin: 1rem;
+  /*margin: 1rem;*/
   padding: 1rem;
+  width:100%;
 }
 .pic{
-  margin: 1rem;
-  padding: 1px;
+  margin: 0 1rem;
+  display: inline-block;
+  max-height: 150px;
+  max-width: 150px;
 }
+
+.pic .ant-avatar > img{
+border-radius: 80px;
+width: 150px;
+height: 150px;
+}
+.pic .ant-avatar{
+ vertical-align: baseline;
+  }
 .information{
-  border-radius: 20px;
-  border-right: 80px solid transparent;
-  border-left: 80px solid transparent;
-  text-align: left;
-  margin: 1rem;
-  padding: 1rem;
+  width: 59%;
+}
+.pic,.information{
+  display: inline-block;
 }
 .extra{
   margin: 1rem;
