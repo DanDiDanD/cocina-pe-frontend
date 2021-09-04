@@ -429,7 +429,7 @@ export default function Recetas() {
               {baseDataPreparacion.map((item, i = 0) => (
                 <>
                   <Col className="receta-card" 
-                    span={12}>
+                    span={8}>
                     
                     <Card
                       className="tarjeta"
@@ -440,7 +440,7 @@ export default function Recetas() {
                           <br />
                           {item.url_imagen.length != 0 ? (
                             <Avatar
-                              size={600}
+                              size={400}
                               style={{
                                 margin: 15,
                                 width: "auto",
