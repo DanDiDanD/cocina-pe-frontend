@@ -357,7 +357,7 @@ export default function EditRecetas() {
             <Row gutter={12}>
               {baseDataPreparacion.map((item, i=0) => (
                   <>
-                    <Col className="receta-card" span={12}>
+                    <Col className="receta-card" span={8}>
                       
                       <Card 
                         className="tarjeta" 
@@ -368,7 +368,7 @@ export default function EditRecetas() {
                             <br />
                             {item.url_imagen.length != 0 ? (
                               <Avatar
-                                size={600}
+                                size={400}
                                 style={{
                                   margin: 15,
                                   width: "auto",
