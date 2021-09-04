@@ -1,4 +1,5 @@
 // Cambios
+
 .list-users-header {
   display: flex;
   align-items: center;
@@ -11,7 +12,13 @@
   font-size: 30px;
   line-height: 24px;
 }
-
+.ant-layout-content {
+  // background-image: url("../../assets/img/png/fondofrutas.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  
+}
 /* Scroll para pasos de recetas */
 .estil-1 {
   height: 130px;
@@ -103,6 +110,8 @@
 
   
 }
+
+
 @media screen and (max-width: 1400px) {
   .receta-card {
     margin: 15px auto;
