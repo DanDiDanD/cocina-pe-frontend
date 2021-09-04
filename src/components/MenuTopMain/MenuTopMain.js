@@ -7,6 +7,7 @@ import { RUTAS } from "../../config/constantes";
 import Modal from "../Modal";
 import AddRecetaModal from '../Recetas/AddRecetaModal'
 import logo from '../../assets/img/png/cocinape.png';
+import logopremium from '../../assets/img/png/cocinapepremium.png';
 import {
     HomeOutlined,
     UserOutlined,
@@ -53,8 +54,12 @@ export default function MenuTopMain(props) {
     };
     return (
         <>
+            {auth.data.is_premium ? (
+                <Image src={logopremium} className="menu-top__img-logo"/>
+            ):
+                <Image src={logo} className="menu-top__img-logo"/>
             
-            <Image src={logo} className="menu-top__img-logo"/>
+            }
             {auth.data.tipo_usuario === "admin" ? (
                 <Menu theme="dark" mode="horizontal" style={{color: "red"}, {backgroundColor: "#dd621b"}}>
                     <Menu.Item className="menu-top__menu-item" key={RUTAS.cocina}>

@@ -1,3 +1,8 @@
+*{
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
 .list-users-header {
   display: flex;
   align-items: center;
@@ -9,8 +14,8 @@
   background-color: #e7d3af;
   border-width: 30px;
   border-radius: 25px;
-  width: 80%;
-  max-width:1000px;
+  width: 100%;
+//  max-width:1000px;
   margin: 10px auto;
   padding: 25px 15px 20px 15px;
 }
@@ -55,4 +60,30 @@
 
 .boton-favoritos-eliminar-receta {
   justify-content: center;
+}
+
+.containerPerfil{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e7d3afec;
+  border-radius: 20px;
+  margin: 1rem;
+  padding: 1rem;
+}
+.pic{
+  margin: 1rem;
+  padding: 1px;
+}
+.information{
+  border-radius: 20px;
+  border-right: 80px solid transparent;
+  border-left: 80px solid transparent;
+  text-align: left;
+  margin: 1rem;
+  padding: 1rem;
+}
+.extra{
+  margin: 1rem;
+  padding: 1px;
 }
