@@ -190,6 +190,7 @@ export default function PlatillosId() {
                 renderItem={(item) => (
                   <List.Item
                     className="lista-fila ant-col-lg-12 inline-block espacio-derecha alinear-objetos"
+                    style={{width:'100%',maxHeight:'198px'}}
                     actions={[
                       <Button
                         className="boton-ver-recetas"
