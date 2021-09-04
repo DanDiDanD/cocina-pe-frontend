@@ -2,4 +2,35 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-  }
+}
+
+.lista-usuarios {
+  background-color: #e7d3af;
+  border-width: 30px;
+  border-radius: 25px;
+  width: 100%;
+//  max-width:1000px;
+  margin: 10px auto;
+  padding: 25px 15px 20px 15px;
+}
+
+.lista-usuarios-meta { 
+  text-align: justify;
+  width: 95%;
+  margin: 1px auto;
+}
+
+.lista-usuarios-titulo{
+  padding-left: 20px;
+}
+
+.lista-usuarios-descripcion{
+  position: relative;
+  padding-left: 20px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.boton-usuarios-eliminar-receta {
+  justify-content: center;
+}
