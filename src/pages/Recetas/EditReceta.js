@@ -351,7 +351,7 @@ export default function EditRecetas() {
         <Col span={12}><Button shape="round" type='primary' onClick={()=>addPreparacion(id)} >Agregar paso</Button></Col>
       </Row>
       
-      <Row>
+      
         <Col className="fonCol" span={"auto"}>
           <div className="site-card-wrapper">
             <Row gutter={12}>
@@ -403,7 +403,7 @@ export default function EditRecetas() {
           </div>
           
         </Col>
-      </Row>
+      
       <br/>
       </div>
       <Modal
