@@ -349,8 +349,14 @@ export default function Perfil() {
                           : <Avatar shape="square" size={250} src="https://i.pinimg.com/originals/f4/38/f3/f438f3600d2690018f981c66e7935b49.png"/>
                         }
                       </div>
+                      <Button
+                        shape="round"
+                        type="dashed"
+                        icon={<EyeOutlined />}
+                        href={'/cocina/premium'}
+                      >Premium
+                      </Button>
                     </div>
-                  
             </TabPane>
 
             <TabPane tab="Mis favoritos" key="2">
